@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const package = require("./package.json");
 
 const IsWebpackDevServer = /webpack-dev-server/.test(
@@ -26,7 +27,13 @@ module.exports = (env = {}, argv = {}) => {
       //minimize: false, // is default true in prod mode
 
       minimizer: [
-        isProd && new UglifyJsPlugin({ sourceMap: true, extractComments: true })
+        isProd && new UglifyJsPlugin({ 
+          cache: true,
+          parallel: true,
+          sourceMap: true, 
+          extractComments: true 
+        }),
+        isProd && new OptimizeCSSAssetsPlugin({}),
       ].filter(Boolean)
 
       /*
