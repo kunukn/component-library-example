@@ -40,12 +40,12 @@ let IconAndButtonExample = () => <div>
 
 ## cdn
 
-https://unpkg.com/@kunukn/componentLibraryExample/
+https://unpkg.com/@kunukn/component-library-example/
 
 use
-* https://unpkg.com/@kunukn/componentLibraryExample/dist/app.js
-* https://unpkg.com/@kunukn/componentLibraryExample/dist/app.css
-* https://unpkg.com/@kunukn/componentLibraryExample/dist/icons.min.svg
+* https://unpkg.com/@kunukn/component-library-example/dist/ComponentLibraryExample.js
+* https://unpkg.com/@kunukn/component-library-example/dist/ComponentLibraryExample.css
+* https://unpkg.com/@kunukn/component-library-example/dist/icons.min.svg
 
 ## supported browsers
 modern browsers + IE 11

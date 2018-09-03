@@ -11,20 +11,20 @@ Include the following to your document
 
 ```html
 <head>
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@kunukn/dfds/dist/dfds.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@kunukn/component-library-example/dist/ComponentLibraryExample.css">
 </head>
 <body>
-  <script src="https://unpkg.com/@kunukn/dfds/dist/dfds.js"></script>
+  <script src="https://unpkg.com/@kunukn/component-library-example/dist/ComponentLibraryExample.js"></script>
 </body>
 ```
 
-Either copy the content on `https://unpkg.com/@kunukn/dfds/dist/icons.min.svg` into the top of your body element in your html file or apply this script at the bottom of your `<body>` element.
+Either copy the content on `https://unpkg.com/@kunukn/component-library-example/dist/icons.min.svg` into the top of your body element in your html file or apply this script at the bottom of your `<body>` element.
 
 ```html
 <script>
   window.Dfds.loadIcons( 
     {
-      path: 'https://unpkg.com/@kunukn/dfds/dist/icons.min.svg', 
+      path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.min.svg', 
       callback: undefined /* optional: add a callback */
     })
 </script>
@@ -33,21 +33,21 @@ Either copy the content on `https://unpkg.com/@kunukn/dfds/dist/icons.min.svg` i
 The React components are available from the window object.
 
 ```js
-const { Icon, Button } = window.Dfds;
+const { Icon, Button } = window.ComponentLibraryExample;
 ```
 
 ### Using NPM
 
-Install @kunukn/dfds from NPM:
+Install @kunukn/component-library-example from NPM:
 
 ```bash
-npm i @kunukn/dfds -S
+npm i @kunukn/component-library-example -S
 ```
 
 Them import components from the package and use them
 
 ```js
-import { Icon, Button } from '@kunukn/dfds';
+import { Icon, Button } from '@kunukn/component-library-example';
 
 <Button
   modifiers="call-to-action"
@@ -62,17 +62,17 @@ Add the css and svg icons to the page.
 
 ```html
 <head>
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@kunukn/dfds/dist/dfds.css">
-  <!-- or use the file from node_modules/@kunukn/dfds folder -->
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@kunukn/component-library-example/dist/ComponentLibraryExample.css">
+  <!-- or use the file from node_modules/@kunukn/component-library-example folder -->
 </head>
 ```
 
 ```js
-import { loadIcons } from '@kunukn/dfds';
+import { loadIcons } from '@kunukn/component-library-example';
 
 loadIcons(
   {
-    path: yourPath + 'node_modules/@kunukn/dfds/dist/icons.min.svg',
+    path: yourPath + 'node_modules/@kunukn/component-library-example/dist/icons.min.svg',
     callback: undefined /* optional: add a callback */
   }
 );
