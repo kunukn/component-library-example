@@ -22,7 +22,7 @@ Either copy the content on `https://unpkg.com/@kunukn/component-library-example/
 
 ```html
 <script>
-  window.Dfds.loadIcons( 
+  window.ComponentLibraryExample.loadIcons( 
     {
       path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.min.svg', 
       callback: undefined /* optional: add a callback */
