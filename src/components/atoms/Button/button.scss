@@ -1,0 +1,54 @@
+.button {
+  margin: 0;
+  box-shadow: none;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 1rem;
+  padding: $gutter-unit;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  transition: 210ms;
+  font-family: DFDS, sans-serif;
+  display: inline-block;
+
+  &:hover:not([disabled]) {
+    background: rgba(gray, 0.1);
+  }
+
+  &--with-icon {
+    display: flex;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &[disabled]{
+    cursor: not-allowed;
+    color: gray;
+  }
+
+  &--call-to-action {
+    background: $color-primary-orange;
+    color: white;
+    &:hover:not([disabled]) {
+      background: $color-primary-hover;
+    }
+    &[disabled]{
+      color: #e2e2e2;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &__text{
+    pointer-events: none;
+  }
+
+  > .icon {
+    margin-left: .5rem;
+    pointer-events: none;
+  }
+}

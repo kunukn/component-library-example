@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'DFDS';
+  src: url('./DFDS-Bold.woff2') format('woff2'),
+    url('./DFDS-Bold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DFDS';
+  src:  url('./DFDS-Regular.woff2') format('woff2'),
+        url('./DFDS-Regular.woff') format('woff');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DFDS';
+  src:  url('./DFDS-Light.woff2') format('woff2'),
+        url('./DFDS-Light.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+}

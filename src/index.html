@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>component library</title>
+    <link rel="shortcut icon" href="">
+</head>
+
+<body>
+    <div style='font-family: DFDS'>yarn storybook</div>
+    <svg style="outline: 1px solid red;" width=200 height=100>
+        <use xlink:href="#triangle" />
+    </svg>
+    <div id="root"></div>
+
+    <script>
+        var path; //"https://unpkg.com/@kunukn/dfds/dist/icons.min.svg"
+        loadIcons({ path: path });
+
+        function loadIcons(props) {
+            var path = props.path;
+            var callback = props.callback;
+            var delay = props.delay;
+
+            // IE 11 support
+            var ajax = new XMLHttpRequest();
+            ajax.onload = function (e) {
+                var div = document.createElement("div");
+                div.style.display = 'none';
+                div.className = 'svg-in-the-dom';
+                div.innerHTML = ajax.responseText;
+                document
+                    .body
+                    .insertBefore(div, document.body.childNodes[0]);
+                callback && callback();
+            }
+
+            setTimeout(function () {
+                ajax.open("GET", path || "/icons.svg", true);
+                ajax.send();
+            }, delay || 0);
+        }
+    </script>
+</body>
+
+</html>
