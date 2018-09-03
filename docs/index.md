@@ -78,8 +78,3 @@ loadIcons(
 );
 /* or use the path from CDN */
 ```
-
-## Demos
-
-- [codesandbox](https://codesandbox.io/s/z608vy6o4x)
-- [codepen](https://codepen.io/kunukn/pen/46145b9ae7d2c2aaa34c72fe12e2305f)

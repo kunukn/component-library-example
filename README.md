@@ -13,8 +13,8 @@
 
 ## demo of prototype
 
-* [codesandbox](https://codesandbox.io/s/z608vy6o4x)
-* [codepen](https://codepen.io/kunukn/pen/46145b9ae7d2c2aaa34c72fe12e2305f)
+* [codesandbox](https://codesandbox.io/s/2wnqxljx3r)
+* [codepen](https://codepen.io/kunukn/pen/af465fa28f09d781363f290d3205bd1e)
 
 
 
