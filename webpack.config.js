@@ -27,13 +27,14 @@ module.exports = (env = {}, argv = {}) => {
       //minimize: false, // is default true in prod mode
 
       minimizer: [
-        isProd && new UglifyJsPlugin({ 
-          cache: true,
-          parallel: true,
-          sourceMap: true, 
-          extractComments: true 
-        }),
-        isProd && new OptimizeCSSAssetsPlugin({}),
+        isProd &&
+          new UglifyJsPlugin({
+            cache: true,
+            parallel: true,
+            sourceMap: true,
+            extractComments: true
+          }),
+        isProd && new OptimizeCSSAssetsPlugin({})
       ].filter(Boolean)
 
       /*
@@ -86,7 +87,8 @@ module.exports = (env = {}, argv = {}) => {
           include: path.join(__dirname, "src"),
           use: [
             {
-              loader: isProd ? MiniCssExtractPlugin.loader : "style-loader"
+              loader: isProd ? MiniCssExtractPlugin.loader : "style-loader",
+              options: isProd ? {publicPath: './'} : {}
             },
             {
               loader: "css-loader",
