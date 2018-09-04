@@ -1,33 +1,29 @@
-
 class A {
   value = 'some value';
-  static Field = "some field";
+  static Field = 'some field';
 }
 
-
-export default() => {
-
+export default () => {
   let log = console.log;
 
-  log('test es8')
+  log('test es8');
 
-  let foo = async() => {
-    log('async working!')
+  let foo = async () => {
+    log('async working!');
   };
-  (async() => {
-    await( foo() );
+  (async () => {
+    await foo();
     log('after foot');
   })();
 
   log(...[1, 2, 3]);
   let obj = {
-    a: 1
+    a: 1,
   };
-  
+
   log({
-    ...obj
-  })
+    ...obj,
+  });
 
-  log('end test es8')
-}
-
+  log('end test es8');
+};
