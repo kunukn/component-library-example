@@ -22,10 +22,11 @@ Either copy the content on `https://unpkg.com/@kunukn/component-library-example/
 
 ```html
 <script>
-  window.ComponentLibraryExample.loadIcons( 
+  window.ComponentLibraryExample.loadIcons(
     {
-      path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.min.svg', 
-      callback: undefined /* optional: add a callback */
+      path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.min.svg',
+      callback: undefined /* optional: add a callback */,
+      delay: 1000 /* optional: add a delay in msec */
     })
 </script>
 ```
@@ -73,7 +74,8 @@ import { loadIcons } from '@kunukn/component-library-example';
 loadIcons(
   {
     path: yourPath + 'node_modules/@kunukn/component-library-example/dist/icons.min.svg',
-    callback: undefined /* optional: add a callback */
+    callback: undefined /* optional: add a callback */,
+    delay: 1000 /* optional: add a delay in msec */
   }
 );
 /* or use the path from CDN */
