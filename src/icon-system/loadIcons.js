@@ -8,7 +8,7 @@ export default function loadIcons({path, callback, delay} = {}) {
     div.className = 'svg-in-the-dom';
     div.innerHTML = ajax.responseText;
     b.insertBefore(div, b.childNodes[0]);
-    callback && callback();
+    callback && callback(ajax.responseText);
   }
 
   setTimeout(() => {
