@@ -35,7 +35,7 @@
                 document
                     .body
                     .insertBefore(div, document.body.childNodes[0]);
-                callback && callback();
+                callback && callback(ajax.responseText);
             }
 
             setTimeout(function () {
