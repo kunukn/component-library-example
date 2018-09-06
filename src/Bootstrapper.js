@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HomePage } from 'components/pages';
 import { AppContext } from 'src/contexts';
+import { appReducer } from 'src/reducers';
 import 'whatwg-fetch';
 import Promise from 'promise';
 import 'src/icon-system/icons.svg'; // make it available as resource at url: /icons.svg
@@ -18,16 +19,6 @@ if (!root.Promise) {
 
 testES8();
 
-const reducer = (state, action) => {
-  if (action.type === 'NAME') {
-    return { ...state, name: action.payload };
-  }
-  if (action.type === 'COUNT') {
-    return { ...state, count: action.payload };
-  }
-  return state;
-};
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +28,7 @@ class App extends React.Component {
       name: '',
       count: '',
       dispatch: action => {
-        this.setState(state => reducer(state, action));
+        this.setState(state => appReducer(state, action));
       },
     };
   }
