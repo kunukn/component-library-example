@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { getJsonAsync } from 'src/utils';
 export default class DataLoader extends React.Component {
   static propTypes = {
     url: PropTypes.string.isRequired,
@@ -22,21 +22,18 @@ export default class DataLoader extends React.Component {
     if (!this.props.url) return;
     if (!this.props.render) return;
 
+    this.setState({
+      isLoading: true,
+    });
+
     try {
       this.setState({
-        isLoading: true,
-      });
-      let response = await fetch(this.props.url);
-      let data = await response.json();
-      this.setState({
-        data,
+        data: await getJsonAsync(this.props.url),
+        isLoading: false,
       });
     } catch (exception) {
       this.setState({
         error: exception + '',
-      });
-    } finally {
-      this.setState({
         isLoading: false,
       });
     }
