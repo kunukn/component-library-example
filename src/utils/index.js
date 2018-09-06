@@ -1,3 +1,8 @@
 import getJsonAsync from './getJsonAsync';
+import addPromiseSupportToDispatch from './addPromiseSupportToDispatch';
 
-export { getJsonAsync };
+function sleep(milliseconds) {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+export { getJsonAsync, addPromiseSupportToDispatch, sleep };

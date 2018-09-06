@@ -32,7 +32,10 @@ export default class HomePage extends Component {
           disabled
           url="https://jsonplaceholder.typicode.com/todos/1"
           render={({ error, data, isLoading, url }) => (
-            <pre>{JSON.stringify({ error, data, isLoading, url }, null, 2)}</pre>
+            <React.Fragment>
+              <h3>DataLoader</h3>
+              <pre>{JSON.stringify({ error, data, isLoading, url }, null, 2)}</pre>
+            </React.Fragment>
           )}
         />
       </Fragment>

@@ -24,7 +24,6 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      version: 1,
       name: '',
       count: '',
       dispatch: action => {
@@ -36,6 +35,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        <h3>appState</h3>
+        <pre>{JSON.stringify(this.state, null, 2)}</pre>
         <AppContext.Provider value={this.state}>
           <HomePage />
         </AppContext.Provider>
