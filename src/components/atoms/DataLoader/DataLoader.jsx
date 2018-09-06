@@ -21,6 +21,7 @@ export default class DataLoader extends React.Component {
   async componentDidMount() {
     if (!this.props.url) return;
     if (!this.props.render) return;
+    if (this.props.disabled) return;
 
     this.setState({
       isLoading: true,

@@ -19,9 +19,28 @@ if (!root.Promise) {
 testES8();
 
 class App extends React.Component {
-  state = {
-    version: 1,
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      version: 1,
+      name: '',
+      count: '',
+      updateName: this.updateName,
+      updateCount: this.updateCount,
+    };
+  }
+
+  updateName = event => {
+    let name = event.target.value;
+    this.setState({ name });
   };
+
+  updateCount = event => {
+    let count = event.target.value;
+    this.setState({ count });
+  };
+
   render() {
     return (
       <div className="app">

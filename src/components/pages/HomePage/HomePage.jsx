@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Fragment, Component } from 'react';
 import { Button, Icon, DataLoader } from 'components/atoms';
 import { InfoBox } from 'components/molecules';
 
-export default class HomePage extends React.Component {
+export default class HomePage extends Component {
   onClick = event => {
     console.log(event);
   };
 
   render() {
     return (
-      <React.Fragment>
+      <Fragment>
         <InfoBox title="yarn storybook">
           <div>
             <Icon name="triangle" />
@@ -27,13 +27,15 @@ export default class HomePage extends React.Component {
             disabled
           </Button>
         </InfoBox>
+        <InfoBox />
         <DataLoader
+          disabled
           url="https://jsonplaceholder.typicode.com/todos/1"
           render={({ error, data, isLoading, url }) => (
             <pre>{JSON.stringify({ error, data, isLoading, url }, null, 2)}</pre>
           )}
         />
-      </React.Fragment>
+      </Fragment>
     );
   }
 }
