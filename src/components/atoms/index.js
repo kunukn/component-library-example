@@ -1,7 +1,5 @@
-import Button from './Button/Button';
-import Icon from './Icon/Icon';
+import DataLoader from './DataLoader/DataLoader.jsx';
+import Button from './Button/Button.jsx';
+import Icon from './Icon/Icon.jsx';
 
-export {
-  Button,
-  Icon
-}
+export { Button, Icon, DataLoader };

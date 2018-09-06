@@ -7,7 +7,7 @@ const wrap = (props = {}) => shallow(<Button {...props} />);
 test('render button title', () => {
   const wrapper = wrap({
     children: 'test',
-    onClick: () => console.log('clicked')
+    onClick: () => console.log('clicked'),
   });
   expect(wrapper.contains('test')).toBe(true);
 });

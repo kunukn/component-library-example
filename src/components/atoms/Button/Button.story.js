@@ -1,21 +1,22 @@
 import React from 'react';
 import Button from './Button';
-import {storiesOf} from '@storybook/react';
-import {withNotes, withMarkdownNotes} from '@storybook/addon-notes';
-import {action} from '@storybook/addon-actions';
-import {linkTo} from '@storybook/addon-links';
-import { backgrounds } from "root/stories/addon-backgrounds";
+import { storiesOf } from '@storybook/react';
+import { withNotes, withMarkdownNotes } from '@storybook/addon-notes';
+import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
+import { backgrounds } from 'root/stories/addon-backgrounds';
 
 export default function ButtonStory() {
   const props = {
-    name: 'button'
+    name: 'button',
   };
 
   storiesOf('Buttons', module)
+    .addDecorator(backgrounds)
 
-  .addDecorator(backgrounds)
-  
-  .add('default', withMarkdownNotes(`
+    .add(
+      'default',
+      withMarkdownNotes(`
 # Button default
 
 usage description here
@@ -28,10 +29,14 @@ usage description here
 </Button>
 ~~~
       `)(() => (
-    <Button {...props} onClick={action('clicked')}>
-      Click me
-    </Button>
-  ))).add('default with icon', withMarkdownNotes(`
+        <Button {...props} onClick={action('clicked')}>
+          Click me
+        </Button>
+      ))
+    )
+    .add(
+      'default with icon',
+      withMarkdownNotes(`
 # Button call to action
 
 usage description here
@@ -47,15 +52,15 @@ usage description here
 </Button>
 ~~~
       `)(() => (
-    <Button
-      {...props}
-      icon='chevron'
-      onClick={action('clicked')}>
-      Click me
-    </Button>
-  )))
+        <Button {...props} icon="chevron" onClick={action('clicked')}>
+          Click me
+        </Button>
+      ))
+    )
 
-  .add('default with icon path', withMarkdownNotes(`
+    .add(
+      'default with icon path',
+      withMarkdownNotes(`
 # Button call to action
 
 usage description here
@@ -71,15 +76,15 @@ usage description here
 </Button>
 ~~~
       `)(() => (
-    <Button
-      {...props}
-      iconPath='/icons.svg#chevron'
-      onClick={action('clicked')}>
-      Click me
-    </Button>
-  )))
+        <Button {...props} iconPath="/icons.svg#chevron" onClick={action('clicked')}>
+          Click me
+        </Button>
+      ))
+    )
 
-  .add('call to action', withMarkdownNotes(`
+    .add(
+      'call to action',
+      withMarkdownNotes(`
 # Button call to action
 
 usage description here
@@ -95,10 +100,14 @@ usage description here
 </Button>
 ~~~
       `)(() => (
-    <Button {...props} modifiers="call-to-action" onClick={action('clicked')}>
-      Click me
-    </Button>
-  ))).add('call to action with icon', withMarkdownNotes(`
+        <Button {...props} modifiers="call-to-action" onClick={action('clicked')}>
+          Click me
+        </Button>
+      ))
+    )
+    .add(
+      'call to action with icon',
+      withMarkdownNotes(`
 # Button call to action
 
 usage description here
@@ -115,15 +124,14 @@ usage description here
 </Button>
 ~~~
       `)(() => (
-    <Button
-      {...props}
-      icon='chevron'
-      modifiers='call-to-action'
-      onClick={action('clicked')}>
-      Click me
-    </Button>
-  )))
-  .add('disabled with icon', withMarkdownNotes(`
+        <Button {...props} icon="chevron" modifiers="call-to-action" onClick={action('clicked')}>
+          Click me
+        </Button>
+      ))
+    )
+    .add(
+      'disabled with icon',
+      withMarkdownNotes(`
 # Button call to action
 
 usage description here
@@ -140,16 +148,15 @@ usage description here
 </Button>
 ~~~
       `)(() => (
-    <Button
-      {...props}
-      icon='chevron'
-      disabled
-      onClick={action('clicked')}>
-      Click me
-    </Button>
-  )))
+        <Button {...props} icon="chevron" disabled onClick={action('clicked')}>
+          Click me
+        </Button>
+      ))
+    )
 
-  .add('disabled call to action with icon', withMarkdownNotes(`
+    .add(
+      'disabled call to action with icon',
+      withMarkdownNotes(`
 # Button call to action
 
 usage description here
@@ -167,17 +174,15 @@ usage description here
 </Button>
 ~~~
       `)(() => (
-    <Button
-      {...props}
-      icon='chevron'
-      disabled
-      modifiers='call-to-action'
-      onClick={action('clicked')}>
-      Click me
-    </Button>
-  )))
+        <Button {...props} icon="chevron" disabled modifiers="call-to-action" onClick={action('clicked')}>
+          Click me
+        </Button>
+      ))
+    )
 
-  .add('full-width call to action with icon', withMarkdownNotes(`
+    .add(
+      'full-width call to action with icon',
+      withMarkdownNotes(`
 # Button call to action
 
 usage description here
@@ -194,15 +199,9 @@ usage description here
 </Button>
 ~~~
       `)(() => (
-    <Button
-      {...props}
-      icon='chevron'
-      modifiers='call-to-action full-width'
-      onClick={action('clicked')}>
-      Click me
-    </Button>
-  )))
-
-  ;
-
+        <Button {...props} icon="chevron" modifiers="call-to-action full-width" onClick={action('clicked')}>
+          Click me
+        </Button>
+      ))
+    );
 }

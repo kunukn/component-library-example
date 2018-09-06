@@ -1,5 +1,5 @@
-import 'components/base/_main.scss';
-import 'components/base/_typography.scss';
+import 'components/base/_main.scss'; // this scss imports other depedencies
+import 'components/base/_typography.scss'; // module import typography, not scss import
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -10,8 +10,9 @@ import 'src/icon-system/icons.svg'; // make it available as resource at url: /ic
 //import 'src/icon-system/load-icons'; // IE support. Inline add SVG in the DOM from url. Is already added in html using script there
 import testES8 from './test-es8';
 
-if (typeof window !== 'undefined' && !window.Promise) {
-  window.Promise = Promise;
+const root = typeof window !== 'undefined' ? window : global;
+if (!root.Promise) {
+  root.Promise = Promise;
 }
 
 testES8();
