@@ -3,8 +3,7 @@ import 'components/base/_typography.scss';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Icon } from 'components/atoms';
-import { InfoBox } from 'components/molecules';
+import { HomePage } from 'components/pages';
 import 'whatwg-fetch';
 import Promise from 'promise';
 import 'src/icon-system/icons.svg'; // make it available as resource at url: /icons.svg
@@ -17,27 +16,4 @@ if (typeof window !== 'undefined' && !window.Promise) {
 
 testES8();
 
-let onClick = event => {
-  console.log('clicked button ' + event.currentTarget);
-};
-
-ReactDOM.render(
-  <InfoBox title="yarn storybook">
-    <div>
-      <Icon name="triangle" />
-    </div>
-    <Button modifiers="call-to-action" icon="facebook" onClick={onClick}>
-      Click me
-    </Button>
-    <Button modifiers="call-to-action full-width" icon="chevron" onClick={onClick}>
-      Click me
-    </Button>
-    <Button modifiers="full-width" onClick={onClick}>
-      Click me
-    </Button>
-    <Button disabled modifiers="full-width" onClick={onClick}>
-      disabled
-    </Button>
-  </InfoBox>,
-  document.getElementById('root')
-);
+ReactDOM.render(<HomePage />, document.getElementById('root'));

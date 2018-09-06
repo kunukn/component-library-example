@@ -1,1 +1,5 @@
-$gutter-unit: 16px;
+$font-family-name: 'DFDS';
+$font-family: #{$font-family-name}, serif;
+$directory-fonts: '../../../fonts';
+
+$gutter-unit: 1.6rem;

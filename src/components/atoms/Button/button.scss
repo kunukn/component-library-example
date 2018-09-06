@@ -3,7 +3,7 @@
   box-shadow: none;
   border: 1px solid transparent;
   background: transparent;
-  font-size: 1rem;
+  font-size: 1.6rem;
   padding: $gutter-unit;
   font-weight: normal;
   text-transform: uppercase;
@@ -23,7 +23,7 @@
     align-items: center;
   }
 
-  &[disabled]{
+  &[disabled] {
     cursor: not-allowed;
     color: gray;
   }
@@ -34,7 +34,7 @@
     &:hover:not([disabled]) {
       background: $color-primary-hover;
     }
-    &[disabled]{
+    &[disabled] {
       color: #e2e2e2;
     }
   }
@@ -43,12 +43,12 @@
     width: 100%;
   }
 
-  &__text{
+  &__text {
     pointer-events: none;
   }
 
   > .icon {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
     pointer-events: none;
   }
 }

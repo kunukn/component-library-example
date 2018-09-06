@@ -1,7 +1,3 @@
-$font-family-name: "DFDS";
-$font-family: #{$font-family-name}, serif;
-$directory-fonts: "../../../fonts";
-
 @font-face {
   font-family: $font-family-name;
   src: url("#{$directory-fonts}/DFDS-Bold.woff2") format("woff2"),
