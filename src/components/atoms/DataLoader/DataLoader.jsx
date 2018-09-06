@@ -8,14 +8,14 @@ export default class DataLoader extends React.Component {
   };
 
   state = {
-    data: {
-      json: null,
-      error: null,
-    },
+    error: null,
+    data: null,
+    isLoading: false,
+    url: this.props.url,
   };
 
   render() {
-    return this.props.render && this.props.render(this.state.data);
+    return this.props.render && this.props.render(this.state);
   }
 
   async componentDidMount() {
@@ -23,18 +23,21 @@ export default class DataLoader extends React.Component {
     if (!this.props.render) return;
 
     try {
-      let response = await fetch(this.props.url);
-      let json = await response.json();
       this.setState({
-        data: {
-          json,
-        },
+        isLoading: true,
+      });
+      let response = await fetch(this.props.url);
+      let data = await response.json();
+      this.setState({
+        data,
       });
     } catch (exception) {
       this.setState({
-        error: {
-          exception,
-        },
+        error: exception + '',
+      });
+    } finally {
+      this.setState({
+        isLoading: false,
       });
     }
   }

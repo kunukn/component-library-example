@@ -29,7 +29,9 @@ export default class HomePage extends React.Component {
         </InfoBox>
         <DataLoader
           url="https://jsonplaceholder.typicode.com/todos/1"
-          render={data => <pre>{JSON.stringify(data, null, 2)}</pre>}
+          render={({ error, data, isLoading, url }) => (
+            <pre>{JSON.stringify({ error, data, isLoading, url }, null, 2)}</pre>
+          )}
         />
       </React.Fragment>
     );
