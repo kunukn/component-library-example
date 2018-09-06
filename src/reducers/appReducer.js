@@ -1,19 +1,18 @@
+import { actionTypes } from 'src/actions';
+let { NAME, COUNT, LOADDATA_STARTED, LOADDATA_SUCCESS, LOADDATA_FAILURE } = actionTypes;
+
 export default function appReducer(state, action) {
-  if (action.type === 'NAME') {
-    return { ...state, name: action.payload };
-  }
-  if (action.type === 'COUNT') {
-    return { ...state, count: action.payload };
-  }
-  if (action.type === 'LOADDATA_STARTED') {
-    return { ...state, loadingData: true };
-  }
-  if (action.type === 'LOADDATA_SUCCESS') {
-    return { ...state, loadedData: action.payload, loadingData: false };
-  }
-  if (action.type === 'LOADDATA_FAILURE') {
-    return { ...state, loadedError: action.payload, loadingData: false };
-  }
+  let { type, payload } = action;
+
+  if (type === NAME) return { ...state, name: payload };
+
+  if (type === COUNT) return { ...state, count: payload };
+
+  if (type === LOADDATA_STARTED) return { ...state, loadingData: true };
+
+  if (type === LOADDATA_SUCCESS) return { ...state, loadedData: payload, loadingData: false };
+
+  if (type === LOADDATA_FAILURE) return { ...state, loadedError: payload, loadingData: false };
 
   return state;
 }

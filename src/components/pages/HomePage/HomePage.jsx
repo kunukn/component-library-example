@@ -1,4 +1,5 @@
-import React, { Fragment, Component } from 'react';
+import './home-page';
+import React, { Component } from 'react';
 import { Button, Icon, DataLoader } from 'components/atoms';
 import { InfoBox } from 'components/molecules';
 
@@ -9,7 +10,7 @@ export default class HomePage extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div className="home-page">
         <InfoBox title="yarn storybook">
           <div>
             <Icon name="triangle" />
@@ -32,13 +33,13 @@ export default class HomePage extends Component {
           disabled
           url="https://jsonplaceholder.typicode.com/todos/1"
           render={({ error, data, isLoading, url }) => (
-            <React.Fragment>
+            <div>
               <h3>DataLoader</h3>
               <pre>{JSON.stringify({ error, data, isLoading, url }, null, 2)}</pre>
-            </React.Fragment>
+            </div>
           )}
         />
-      </Fragment>
+      </div>
     );
   }
 }
