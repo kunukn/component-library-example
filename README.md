@@ -1,5 +1,12 @@
 # Component library example in ReactJS
 
+## tech used
+
+- Babel 7, ECMAScript 8
+- Webpack, Webpack-dev-server
+- React, Storybook
+- Context Api using the Redux pattern
+
 ## quick start
 
 ### view component library
