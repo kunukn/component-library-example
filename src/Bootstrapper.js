@@ -4,6 +4,7 @@ import 'components/base/_typography.scss'; // module import typography, not scss
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HomePage } from 'components/pages';
+import { AppContext } from 'src/context';
 import 'whatwg-fetch';
 import Promise from 'promise';
 import 'src/icon-system/icons.svg'; // make it available as resource at url: /icons.svg
@@ -17,4 +18,19 @@ if (!root.Promise) {
 
 testES8();
 
-ReactDOM.render(<HomePage />, document.getElementById('root'));
+class App extends React.Component {
+  state = {
+    version: 1,
+  };
+  render() {
+    return (
+      <div className="app">
+        <AppContext.Provider value={this.state}>
+          <HomePage />
+        </AppContext.Provider>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
