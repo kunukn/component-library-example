@@ -55,7 +55,7 @@ module.exports = (env = {}, argv = {}) => {
       publicPath: "/"
     },
     devServer: {
-      port: 9009,
+      port: 6007,
       contentBase: path.join(__dirname, ""),
       open: true
     },

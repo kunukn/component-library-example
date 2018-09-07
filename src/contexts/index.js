@@ -1,6 +1,10 @@
 import React from 'react';
 
-export const AppContext = React.createContext();
+export const AppContext = React.createContext({
+  dispatch: () => {
+    console.error('please implement dispatch function');
+  },
+});
 
 export function withAppState(Component) {
   return function AppStateComponent(props) {
