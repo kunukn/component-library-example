@@ -109,8 +109,8 @@ module.exports = (env = {}, argv = {}) => {
             {
               loader: "sass-loader",
               options: {
-                data: '@import "_helpers.scss";',
-                includePaths: [path.join(__dirname, "src/components/base")],
+                data: '@import "_helpers.scss";', /* data and includePaths are setup used to make global vars and mixins work */
+                includePaths: [path.join(__dirname, "src/components/base")], /* provide the path for _helpers.scss file */
                 sourceMap: true
               }
             }
