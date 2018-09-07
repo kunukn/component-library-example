@@ -8,6 +8,10 @@ export const AppContext = React.createContext({
 
 export function withAppState(Component) {
   return function AppStateComponent(props) {
-    return <AppContext.Consumer>{appState => <Component {...props} appState={appState} />}</AppContext.Consumer>;
+    return (
+      <AppContext.Consumer>
+        {state => <Component {...props} appState={state.values} dispatch={state.dispatch} />}
+      </AppContext.Consumer>
+    );
   };
 }

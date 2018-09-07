@@ -12,10 +12,12 @@ export default class App extends React.Component {
     super(props);
 
     this.state = {
-      name: '',
-      count: '',
+      values: {
+        name: 'name',
+        count: 1,
+      },
       dispatch: action => {
-        this.setState(state => appReducer(state, action));
+        this.setState(prevState => ({ values: appReducer(prevState.values, action) }));
       },
     };
   }
@@ -24,7 +26,7 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <h3>appState</h3>
-        <pre>{JSON.stringify(this.state, null, 2)}</pre>
+        <pre>{JSON.stringify(this.state.values, null, 2)}</pre>
         <AppContext.Provider value={this.state}>
           <HomePage />
         </AppContext.Provider>

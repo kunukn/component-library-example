@@ -5,10 +5,10 @@ import { withAppState } from 'src/contexts';
 import { loadData, actionTypes } from 'src/actions';
 const { NAME, COUNT } = actionTypes;
 
-function InfoBox({ title, children, appState }) {
-  let onNameChange = e => appState.dispatch({ type: NAME, payload: e.target.value });
-  let onCountChange = e => appState.dispatch({ type: COUNT, payload: e.target.value });
-  let onLoadClick = () => loadData(appState.dispatch, 'https://jsonplaceholder.typicode.com/todos/1');
+function InfoBox({ title, children, appState, dispatch }) {
+  let onNameChange = e => dispatch({ type: NAME, payload: e.target.value });
+  let onCountChange = e => dispatch({ type: COUNT, payload: e.target.value });
+  let onLoadClick = () => loadData(dispatch, 'https://jsonplaceholder.typicode.com/todos/1');
 
   return (
     <div className="info-box">
