@@ -34,9 +34,9 @@ usage description here
           className=""
           style={{
             padding: '1rem',
-            fontSize: '2rem',
-            letterSpacing: '10px',
-            wordWrap: 'break-word'
+            fontSize: '3.2rem',
+            letterSpacing: '1rem',
+            wordWrap: 'break-word',
           }}
         >
           <Letters title="DFDS Font regular" />

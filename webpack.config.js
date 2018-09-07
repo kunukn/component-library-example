@@ -43,7 +43,7 @@ module.exports = (env = {}, argv = {}) => {
       */
     },
     entry: {
-      //      vendor: Object.keys(package.dependencies),
+      //vendor: Object.keys(package.dependencies),
       ComponentLibraryExample: isProd ? [prodEntry] : [devEntry]
     },
     output: {

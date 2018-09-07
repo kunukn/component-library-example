@@ -67,18 +67,18 @@
     "@storybook/addons": "^3.4.10",
     "@storybook/react": "^3.4.10",
     "@storybook/storybook-deployer": "^2.3.0",
-    "autoprefixer": "^9.1.4",
+    "autoprefixer": "^9.1.5",
     "babel-core": "npm:@babel/core",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
-    "babel-loader": "^8.0.0",
+    "babel-loader": "^8.0.2",
     "babel-runtime": "^6.26.0",
     "browser-sync": "^2.24.7",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "enzyme": "^3.5.1",
-    "enzyme-adapter-react-16": "^1.4.0",
+    "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.5.0",
     "eslint-config-prettier": "^3.0.1",
     "eslint-config-react-app": "^2.1.0",
@@ -104,15 +104,15 @@
     "promise": "^8.0.1",
     "raw-loader": "^0.5.1",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-test-renderer": "^16.4.2",
+    "react-dom": "^16.5.0",
+    "react-test-renderer": "^16.5.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
     "uglifyjs-webpack-plugin": "^1.3.0",
     "url-loader": "^1.1.1",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.7",
+    "webpack-dev-server": "^3.1.8",
     "webpack-hot-middleware": "^2.23.1",
     "webpack-md5-hash": "0.0.6",
     "whatwg-fetch": "^2.0.4"
@@ -122,7 +122,7 @@
     "prop-types": "^15.6.2"
   },
   "peerDependencies": {
-    "react": "^15.x || ^16.x",
-    "react-dom": "^15.x || ^16.x"
+    "react": "^15.x || ^16.x || ^17.x",
+    "react-dom": "^15.x || ^16.x || ^17.x"
   }
 }

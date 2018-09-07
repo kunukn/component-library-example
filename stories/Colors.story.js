@@ -17,7 +17,7 @@ let Box = ({ color = 'black', background = 'white', children = null } = {}) => (
       display: 'inline-flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     }}
   >
     {children}
@@ -26,7 +26,7 @@ let Box = ({ color = 'black', background = 'white', children = null } = {}) => (
 
 export default function ColorsStory() {
   const props = {
-    name: 'color'
+    name: 'color',
   };
 
   storiesOf('Colors', module)
@@ -48,7 +48,8 @@ usage description here
             padding: '1rem',
             display: 'grid',
             gridGap: '1rem',
-            gridTemplateColumns: 'repeat(auto-fill, 200px)'
+            gridTemplateColumns: 'repeat(auto-fill, 200px)',
+            fontSize: '1.6rem',
           }}
         >
           <Box color="white" background="#002b45">
