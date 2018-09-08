@@ -2,12 +2,12 @@ import './info-box.scss';
 import React from 'react';
 import { Button } from 'components/atoms';
 import { withAppState } from 'src/contexts';
-import { loadData, actionTypes } from 'src/actions';
-const { NAME, COUNT } = actionTypes;
+import { NAME_UPDATED, COUNT_UPDATED } from 'src/actions/actionTypes';
+import { loadData } from 'src/actions';
 
 function InfoBox({ title, children, appState, dispatch }) {
-  let onNameChange = e => dispatch({ type: NAME, payload: e.target.value });
-  let onCountChange = e => dispatch({ type: COUNT, payload: e.target.value });
+  let onNameChange = e => dispatch({ type: NAME_UPDATED, payload: e.target.value });
+  let onCountChange = e => dispatch({ type: COUNT_UPDATED, payload: e.target.value });
   let onLoadClick = () => loadData(dispatch, 'https://jsonplaceholder.typicode.com/todos/1');
 
   return (

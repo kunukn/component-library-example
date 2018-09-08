@@ -1,22 +1,13 @@
 import { getJsonAsync, sleep } from 'src/utils';
-
-export const actionTypes = {
-  LOADDATA_STARTED: 'LOADDATA_STARTED',
-  LOADDATA_SUCCESS: 'LOADDATA_SUCCESS',
-  LOADDATA_FAILURE: 'LOADDATA_FAILURE',
-  NAME: 'NAME',
-  COUNT: 'COUNT',
-};
-
-let { LOADDATA_STARTED, LOADDATA_SUCCESS, LOADDATA_FAILURE } = actionTypes;
+import { LOADDATA_STARTED, LOADDATA_SUCCEEDED, LOADDATA_FAILED } from './actionTypes';
 
 export async function loadData(dispatch, url) {
   try {
     dispatch({ type: LOADDATA_STARTED });
     await sleep(1000); // simulate latency
     let data = await getJsonAsync(url);
-    dispatch({ type: LOADDATA_SUCCESS, payload: data });
+    dispatch({ type: LOADDATA_SUCCEEDED, payload: data });
   } catch (ex) {
-    dispatch({ type: LOADDATA_FAILURE, payload: ex });
+    dispatch({ type: LOADDATA_FAILED, payload: ex });
   }
 }
