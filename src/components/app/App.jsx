@@ -7,6 +7,14 @@ import { HomePage } from 'components/pages';
 import { AppContext } from 'src/contexts';
 import { appReducer } from 'src/reducers';
 
+function appDispatchResolver(app, action) {
+  if (typeof action === 'function') {
+    action(app.dispatch, app.getState);
+  } else {
+    app.setState(prevState => ({ values: appReducer(prevState.values, action) }));
+  }
+}
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,11 +24,13 @@ export default class App extends React.Component {
         name: 'name',
         count: 1,
       },
-      dispatch: action => {
-        this.setState(prevState => ({ values: appReducer(prevState.values, action) }));
-      },
+      dispatch: this.dispatch,
     };
   }
+
+  getState = () => this.state.values;
+
+  dispatch = action => appDispatchResolver(this, action);
 
   render() {
     return (
