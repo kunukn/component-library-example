@@ -3,12 +3,13 @@ import React from 'react';
 import { Button } from 'components/atoms';
 import { withAppState } from 'src/contexts';
 import { NAME_UPDATED, COUNT_UPDATED } from 'src/actions/actionTypes';
-import { loadData } from 'src/actions';
+import { loadData, loadData2 } from 'src/actions';
 
 function InfoBox({ title, children, appState, dispatch }) {
   let onNameChange = e => dispatch({ type: NAME_UPDATED, payload: e.target.value });
   let onCountChange = e => dispatch({ type: COUNT_UPDATED, payload: e.target.value });
-  let onLoadClick = () => loadData(dispatch, 'https://jsonplaceholder.typicode.com/todos/1');
+  //let onLoadClick = () => loadData(dispatch, 'https://jsonplaceholder.typicode.com/todos/1');
+  let onLoadClick = () => dispatch(loadData2('https://jsonplaceholder.typicode.com/todos/1'));
 
   return (
     <div className="info-box">

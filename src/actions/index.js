@@ -11,3 +11,16 @@ export async function loadData(dispatch, url) {
     dispatch({ type: LOADDATA_FAILED, payload: ex });
   }
 }
+
+export function loadData2(url) {
+  return async (dispatch, getState) => {
+    try {
+      dispatch({ type: LOADDATA_STARTED });
+      await sleep(1000); // simulate latency
+      let data = await getJsonAsync(url);
+      dispatch({ type: LOADDATA_SUCCEEDED, payload: data });
+    } catch (ex) {
+      dispatch({ type: LOADDATA_FAILED, payload: ex });
+    }
+  };
+}
