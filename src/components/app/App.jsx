@@ -7,6 +7,9 @@ import { HomePage } from 'components/pages';
 import { AppContext } from 'src/contexts';
 import { appReducer } from 'src/reducers';
 
+/**
+ * Similar to Redux thunk
+ */
 function appDispatchResolver(app, action) {
   if (typeof action === 'function') {
     action(app.dispatch, app.getState);
