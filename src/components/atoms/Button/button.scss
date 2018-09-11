@@ -29,7 +29,7 @@
   }
 
   &--call-to-action {
-    background: $color-primary-orange;
+    background-color: $color-primary-orange;
     color: white;
     &:hover:not([disabled]) {
       background: $color-primary-hover;
@@ -37,6 +37,14 @@
     &[disabled] {
       color: #e2e2e2;
     }
+  }
+
+  &--with-dark-border {
+    border-color: #444;
+  }
+
+  &--with-light-border {
+    border-color: #ccc;
   }
 
   &--full-width {

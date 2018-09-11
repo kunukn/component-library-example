@@ -1,5 +1,6 @@
 // webpack 4+
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -7,6 +8,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const webpack = require('webpack');
 const package = require('./package.json');
 
 const IsWebpackDevServer = /webpack-dev-server/.test(process.env.npm_lifecycle_script);
@@ -20,9 +22,21 @@ module.exports = (env = {}, argv = {}) => {
   let devEntry = './src/index.js';
 
   let config = {
-    devtool: 'source-map',
+    devtool: isProd ? 'source-map' : 'cheap-module-source-map',
+    mode: isProd ? 'production' : 'development',
     optimization: {
       //minimize: false, // is default true in prod mode
+
+      // Automatically split vendor and commons
+      // https://twitter.com/wSokra/status/969633336732905474
+      // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+      splitChunks: {
+        chunks: 'all',
+        name: 'vendors',
+      },
+      // Keep the runtime chunk seperated to enable long term caching
+      // https://twitter.com/wSokra/status/969679223278505985
+      runtimeChunk: true,
 
       minimizer: [
         isProd &&
@@ -59,6 +73,9 @@ module.exports = (env = {}, argv = {}) => {
       port: 6007,
       contentBase: path.join(__dirname, ''),
       open: true,
+      hot: true,
+      disableHostCheck: true,
+      watchContentBase: true,
     },
     module: {
       rules: [
@@ -167,7 +184,7 @@ module.exports = (env = {}, argv = {}) => {
       isProd && new CleanWebpackPlugin('dist', {}),
       new MiniCssExtractPlugin({
         filename: '[name].css',
-        chunkFilename: '[id].css',
+        chunkFilename: '[name]-[id].css',
       }),
       new HtmlWebpackPlugin({
         compile: false,
@@ -176,6 +193,8 @@ module.exports = (env = {}, argv = {}) => {
         template: 'src/index.html',
         filename: 'index.html',
       }),
+      // This is necessary to emit hot updates (currently CSS only):
+      !isProd && new webpack.HotModuleReplacementPlugin(),
       new WebpackMd5Hash(),
       isProd &&
         new CopyWebpackPlugin(
@@ -195,6 +214,7 @@ module.exports = (env = {}, argv = {}) => {
           ],
           {}
         ),
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ].filter(Boolean),
     resolve: {
       extensions: ['.js', '.jsx', '.scss'],
