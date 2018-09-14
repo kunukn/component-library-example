@@ -17,13 +17,12 @@
     <div id="root"></div>
 
     <script>
-        var path;
-        loadIcons({ path: path });
+        loadIcons();
 
         function loadIcons(props) {
-            var path = props.path;
-            var callback = props.callback;
-            var delay = props.delay;
+            var path = props && props.path;
+            var callback = props && props.callback;
+            var delay = props && props.delay;
 
             // IE 11 support
             var ajax = new XMLHttpRequest();
@@ -37,11 +36,8 @@
                     .insertBefore(div, document.body.childNodes[0]);
                 callback && callback(ajax.responseText);
             }
-
-            setTimeout(function () {
-                ajax.open("GET", path || "/icons.svg", true);
-                ajax.send();
-            }, delay || 0);
+            ajax.open("GET", path || "/icons.svg", true);
+            ajax.send();
         }
     </script>
 </body>
