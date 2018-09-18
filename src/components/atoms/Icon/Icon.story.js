@@ -9,7 +9,17 @@ import { backgrounds } from 'root/stories/addon-backgrounds';
 
 class AllIcons extends React.Component {
   render() {
-    return <div className="root-icons">all</div>;
+    return (
+      <div
+        className="root-icons"
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+        }}
+      >
+        all
+      </div>
+    );
   }
   componentDidMount() {
     setTimeout(() => {
@@ -26,6 +36,7 @@ class AllIcons extends React.Component {
       for (let element of ids) {
         div = document.createElement('div');
         div.className = 'icon-container';
+        div.style.margin = '.5rem';
         let id = element.getAttribute('id');
         let title = element.querySelector('title') || '';
         if (title) {
@@ -121,28 +132,5 @@ usage description here
 <Icon width={100} height={100} name='linkedin' />
 ~~~
       `)(() => <Icon {...props} width={100} height={100} name="linkedin" />)
-    )
-    .add(
-      'many icons',
-      withMarkdownNotes(`
-
-#icons
-
-      `)(() => (
-        <div
-          style={{
-            padding: '1rem',
-            display: 'grid',
-            gridGap: '1rem',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(3rem, 1fr))',
-          }}
-        >
-          <Icon {...manyIconsProps} name="chevron" />
-          <Icon {...manyIconsProps} name="facebook" />
-          <Icon {...manyIconsProps} name="linkedin" />
-          <Icon {...manyIconsProps} name="twitter" />
-          <Icon {...manyIconsProps} name="email" />
-        </div>
-      ))
     );
 }
