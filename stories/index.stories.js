@@ -12,7 +12,7 @@ import ColorsStory from './Colors.story';
 import IconStory from 'components/atoms/Icon/Icon.story';
 import ButtonStory from 'components/atoms/Button/Button.story';
 
-loadIcons({ path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.min.svg', delay: 0 });
+loadIcons({ path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.svg' });
 
 FontsStory();
 ColorsStory();

@@ -1,23 +1,31 @@
 @font-face {
+  font-display: swap;
   font-family: $font-family-name;
-  src: url("#{$directory-fonts}/DFDS-Bold.woff2") format("woff2"),
-    url("#{$directory-fonts}/DFDS-Bold.woff") format("woff");
+  src: url('#{$directory-fonts}/DFDS-Bold.woff2') format('woff2'),
+    url('#{$directory-fonts}/DFDS-Bold.woff') format('woff');
   font-weight: 700;
-  font-display: swap;
 }
 
 @font-face {
+  font-display: swap;
   font-family: $font-family-name;
-  src: url("#{$directory-fonts}/DFDS-Regular.woff2") format("woff2"),
-    url("#{$directory-fonts}/DFDS-Regular.woff") format("woff");
+  src: url('#{$directory-fonts}/DFDS-Regular.woff2') format('woff2'),
+    url('#{$directory-fonts}/DFDS-Regular.woff') format('woff');
   font-weight: 400;
-  font-display: swap;
 }
 
 @font-face {
-  font-family: $font-family-name;
-  src: url("#{$directory-fonts}/DFDS-Light.woff2") format("woff2"),
-    url("#{$directory-fonts}/DFDS-Light.woff") format("woff");
-  font-weight: 300;
   font-display: swap;
+  font-family: $font-family-name;
+  src: url('#{$directory-fonts}/DFDS-Light.woff2') format('woff2'),
+    url('#{$directory-fonts}/DFDS-Light.woff') format('woff');
+  font-weight: 100;
+}
+
+@font-face {
+  font-display: swap;
+  font-family: $font-family-name;
+  src: url('#{$directory-fonts}/DFDS-Italic.woff2') format('woff2'),
+    url('#{$directory-fonts}/DFDS-Italic.woff') format('woff');
+  font-style: italic;
 }
