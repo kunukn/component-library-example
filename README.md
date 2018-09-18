@@ -5,7 +5,7 @@
 - Babel 7, ECMAScript 8
 - Webpack, Webpack-dev-server
 - React, Storybook
-- Context Api using the Redux pattern
+- Context Api using the (Redux + Redux thunk) pattern
 
 ## quick start
 
