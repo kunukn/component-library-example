@@ -6,10 +6,10 @@ import { linkTo } from '@storybook/addon-links';
 import { backgrounds } from 'root/stories/addon-backgrounds';
 
 export default function FontsStory() {
-  const Letters = ({ title, fontWeight = 400 }) => {
+  const Letters = ({ title, fontWeight = 400, fontStyle = 'normal' }) => {
     const alphabet = 'abcdefghijklmnopqrstuvwxæøå';
     return (
-      <div style={{ fontWeight }}>
+      <div style={{ fontWeight, fontStyle }}>
         <p>{title}</p>
         <p>{alphabet}</p>
         <p style={{ textTransform: 'uppercase' }}>{alphabet}</p>
@@ -46,6 +46,9 @@ usage description here
           <hr />
 
           <Letters title="DFDS Font bold" fontWeight="bold" />
+          <hr />
+
+          <Letters title="DFDS Font italic" fontStyle="italic" />
         </div>
       ))
     );

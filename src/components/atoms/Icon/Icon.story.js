@@ -16,9 +16,7 @@ class AllIcons extends React.Component {
           display: 'flex',
           flexWrap: 'wrap',
         }}
-      >
-        all
-      </div>
+      />
     );
   }
   componentDidMount() {
