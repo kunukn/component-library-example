@@ -44,7 +44,8 @@ module.exports = (env = {}, argv = {}) => {
             cache: true,
             parallel: true,
             sourceMap: true,
-            extractComments: true,
+            extractComme
+            ts: true,
           }),
         isProd &&
           new OptimizeCSSAssetsPlugin({
