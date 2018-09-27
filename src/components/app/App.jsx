@@ -3,10 +3,27 @@ import 'components/base/_typography.scss'; // module import typography, not scss
 import './app.scss';
 
 import React from 'react';
-import { HomePage, BasicExamplePage } from 'components/pages';
+import { HomePage } from 'components/pages';
+import { Icon } from 'components/atoms';
 import { AppContext } from 'src/contexts';
 import { appReducer } from 'src/reducers';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+
+const A = () => (
+  <div>
+    A <Icon name="pin" />
+  </div>
+);
+const B = () => (
+  <div>
+    B <Icon name="pin" />
+  </div>
+);
+const C = () => (
+  <div>
+    C <Icon name="pin" />
+  </div>
+);
 
 /**
  * Similar to Redux Thunk
@@ -47,10 +64,26 @@ export default class App extends React.Component {
         <AppContext.Provider value={this.state}>
           <Router>
             <React.Fragment>
-              <Link to="/basic">Test router</Link>
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/a">A</Link>
+                </li>
+                <li>
+                  <Link to="/b">B</Link>
+                </li>
+                <li>
+                  <Link to="/c">C</Link>
+                </li>
+              </ul>
+
               <Switch>
                 <Route exact path="/" component={HomePage} />
-                <Route path="/basic" component={BasicExamplePage} />
+                <Route path="/a" component={A} />
+                <Route path="/b" component={B} />
+                <Route path="/c" component={C} />
               </Switch>
             </React.Fragment>
           </Router>
