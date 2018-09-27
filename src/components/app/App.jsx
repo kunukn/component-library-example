@@ -6,15 +6,21 @@ import React from 'react';
 import { HomePage } from 'components/pages';
 import { AppContext } from 'src/contexts';
 import { appReducer } from 'src/reducers';
+import { withAppState } from 'src/contexts';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+
+const TestRouting = withAppState(({ appState }) => <h2>Test routing appState value: {appState.test}</h2>);
 
 /**
- * Similar to Redux thunk
+ * Similar to Redux Thunk
  */
 function appDispatchResolver(app, action) {
   if (typeof action === 'function') {
     action(app.dispatch, app.getState);
   } else {
-    app.setState(prevState => ({ values: appReducer(prevState.values, action) }));
+    app.setState(prevState => ({
+      values: appReducer(prevState.values, action),
+    }));
   }
 }
 
@@ -26,6 +32,7 @@ export default class App extends React.Component {
       values: {
         name: 'name',
         count: 1,
+        test: 'test',
       },
       dispatch: this.dispatch,
     };
@@ -41,7 +48,12 @@ export default class App extends React.Component {
         <h3>appState</h3>
         <pre>{JSON.stringify(this.state.values, null, 2)}</pre>
         <AppContext.Provider value={this.state}>
-          <HomePage />
+          <Router>
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route path="/test" component={TestRouting} />
+            </Switch>
+          </Router>
         </AppContext.Provider>
       </div>
     );

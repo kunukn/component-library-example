@@ -76,6 +76,7 @@ module.exports = (env = {}, argv = {}) => {
       hot: true,
       disableHostCheck: true,
       watchContentBase: true,
+      historyApiFallback: true,
     },
     module: {
       rules: [
