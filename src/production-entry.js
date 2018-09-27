@@ -6,6 +6,4 @@ import loadIcons from 'src/icon-system/loadIcons';
 
 //import { InfoBox } from 'components/molecules';
 
-export {
-    loadIcons, Button, Icon
-}
+export { loadIcons, Button, Icon };

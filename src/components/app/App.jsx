@@ -3,13 +3,10 @@ import 'components/base/_typography.scss'; // module import typography, not scss
 import './app.scss';
 
 import React from 'react';
-import { HomePage } from 'components/pages';
+import { HomePage, BasicExamplePage } from 'components/pages';
 import { AppContext } from 'src/contexts';
 import { appReducer } from 'src/reducers';
-import { withAppState } from 'src/contexts';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-
-const TestRouting = withAppState(({ appState }) => <h2>Test routing appState value: {appState.test}</h2>);
 
 /**
  * Similar to Redux Thunk
@@ -49,10 +46,13 @@ export default class App extends React.Component {
         <pre>{JSON.stringify(this.state.values, null, 2)}</pre>
         <AppContext.Provider value={this.state}>
           <Router>
-            <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/test" component={TestRouting} />
-            </Switch>
+            <React.Fragment>
+              <Link to="/basic">Test router</Link>
+              <Switch>
+                <Route exact path="/" component={HomePage} />
+                <Route path="/basic" component={BasicExamplePage} />
+              </Switch>
+            </React.Fragment>
           </Router>
         </AppContext.Provider>
       </div>

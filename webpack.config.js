@@ -19,7 +19,7 @@ module.exports = (env = {}, argv = {}) => {
   console.log('***', isProd ? 'prod' : 'dev', '***');
 
   let prodEntry = './src/production-entry';
-  let devEntry = './src/index.js';
+  let devEntry = './src/Bootstrapper';
 
   let config = {
     devtool: isProd ? 'source-map' : 'cheap-module-source-map',

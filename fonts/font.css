@@ -1,15 +1,15 @@
 @font-face {
   font-display: swap;
   font-family: DFDS;
-  src: url('./DFDS-Bold.woff2') format('woff2'), url('./DFDS-Bold.woff') format('woff');
-  font-weight: 700;
+  src: url('./DFDS-Regular.woff2') format('woff2'), url('./DFDS-Regular.woff') format('woff');
+  font-weight: 400;
 }
 
 @font-face {
   font-display: swap;
   font-family: DFDS;
-  src: url('./DFDS-Regular.woff2') format('woff2'), url('./DFDS-Regular.woff') format('woff');
-  font-weight: 400;
+  src: url('./DFDS-Bold.woff2') format('woff2'), url('./DFDS-Bold.woff') format('woff');
+  font-weight: 700;
 }
 
 @font-face {
