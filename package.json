@@ -20,6 +20,7 @@
     "deploy-storybook": "storybook-to-ghpages",
     "dsb": "npm run deploy-storybook -- --existing-output-dir=.out",
     "sm": "source-map-explorer dist/ComponentLibraryExample.js",
+    "sm2": "source-map-explorer dist/vendors.js",
     "build-deploy-storybook": "npm run build-storybook && npm run dsb"
   },
   "repository": {
@@ -73,7 +74,7 @@
     "babel-core": "npm:@babel/core",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
-    "babel-loader": "^8.0.3",
+    "babel-loader": "^8.0.4",
     "babel-runtime": "^6.26.0",
     "browser-sync": "^2.24.7",
     "clean-webpack-plugin": "^0.1.19",
