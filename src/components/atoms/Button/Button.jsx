@@ -16,7 +16,7 @@ export default function Button({ children, onClick, disabled, className, modifie
 
   return (
     <button
-      className={cx('button', className, cssModifiers, { 'button--with-icon': hasIcon })}
+      className={cx('button', cssModifiers, { 'button--with-icon': hasIcon }, className)}
       onClick={onClick}
       type={type}
       disabled={disabled}
@@ -25,7 +25,7 @@ export default function Button({ children, onClick, disabled, className, modifie
       {hasIcon && (
         <Fragment>
           <div className="button__text">{children}</div>
-          <Icon name={icon} path={iconPath} />
+          <Icon name={icon} path={iconPath} modifiers="button" />
         </Fragment>
       )}
     </button>

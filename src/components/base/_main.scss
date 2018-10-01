@@ -1,4 +1,4 @@
-//@import "normalize-scss/sass/_normalize.scss";
-//@include normalize;
+@import "normalize-scss/sass/_normalize.scss";
+@include normalize;
 
 @import '_base', '_root', '_form';

@@ -1,10 +1,10 @@
-html {
-  font-size: x-small;
+:root {
+  font-size: x-small; // 10px
 }
 
 body {
   margin: 0;
-  font-family: DFDS, sans-serif;
   min-height: 100vh;
+  font-family: DFDS, sans-serif;
   font-size: 1.3rem;
 }

@@ -1,5 +1,10 @@
 .home-page {
-  background: #eee;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  background: #ddd;
+  
+  display: flex;
+  flex-wrap: wrap;
+
+  > * {
+    margin: 1rem;
+  }
 }
