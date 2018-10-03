@@ -1,5 +1,14 @@
 # Component library example in ReactJS
 
+## methodology and strategy
+
+- Semantic HTML
+- Atomic design, bottom up.
+- BEM naming for styling.
+- Eliminate dead CSS. Only needed styling are compiled. The React components import the needed styling.
+- Component based architecture. Each component owns the style-guide definition, styling and unit testing.
+- A css bundle is generated which can be shared to other projects than ReactJS. (markup pattern)
+
 ## tech used
 
 - Babel 7, ECMAScript 8
@@ -61,14 +70,6 @@ modern browsers + IE 11
 ## run tests
 
 - yarn test
-
-## methodology and strategy
-
-- Atomic design, bottom up.
-- BEM naming for styling.
-- Eliminate dead CSS. Only needed styling are compiled. The React components import the needed styling.
-- Component based architecture. Each component owns the style-guide definition, styling and unit testing.
-- A css bundle is generated which can be shared to other projects than ReactJS.
 
 ## design principles
 
