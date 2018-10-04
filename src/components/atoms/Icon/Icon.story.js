@@ -28,6 +28,8 @@ class AllIcons extends React.Component {
 
     function apply(svgIcons) {
       let rootIcons = document.querySelector('.root-icons');
+      if (!rootIcons) return;
+
       let ids = [].slice.call(svgIcons.querySelectorAll('[id]'));
       let fragment = document.createDocumentFragment();
       let div;
@@ -61,11 +63,6 @@ class AllIcons extends React.Component {
 export default function IconStory() {
   const props = {
     name: 'icon',
-  };
-
-  const manyIconsProps = {
-    width: '3rem',
-    height: '3rem',
   };
 
   storiesOf('Icons', module)
