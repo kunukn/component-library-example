@@ -63,7 +63,7 @@ module.exports = (env = {}, argv = {}) => {
     entry: {
       //vendor: Object.keys(package.dependencies),
       ComponentLibraryExample: isProd ? [prodEntry] : [devEntry],
-      ThirdPartyStylings: ['./src/third-party-stylings/example-of-third-party-styling-code-split.scss'],
+      ThirdPartyStylings: ['./src/third-party-stylings/example-of-third-party-styling.scss'],
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
