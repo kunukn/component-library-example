@@ -47,11 +47,34 @@
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/test/jestSetup.js",
     "snapshotSerializers": [],
+    "modulePaths": [
+      "<rootDir>",
+      "/src"
+    ],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|scss)$": "identity-obj-proxy",
-      "\\.(xcss|xscss)$": "<rootDir>/__mocks__/styleMock.js"
-    }
+      "\\.(xcss|xscss)$": "<rootDir>/__mocks__/styleMock.js",
+      "^src/contexts$": "<rootDir>/src/contexts/index.js",
+      "^components$": "<rootDir>/src/components/index.js",
+      "^components/atoms$": "<rootDir>/src/components/atoms/index.js"
+    },
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfills.js"
+    ],
+    "roots": [
+      "<rootDir>"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "<rootDir>"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
