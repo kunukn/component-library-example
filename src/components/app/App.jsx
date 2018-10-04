@@ -2,8 +2,7 @@ import 'components/styles';
 import './app.scss';
 
 import React from 'react';
-import { HomePage } from 'components/pages';
-import { Icon } from 'components/atoms';
+import { Icon, HomePage } from 'components';
 import { AppContext } from 'src/contexts';
 import { appReducer } from 'src/reducers';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
