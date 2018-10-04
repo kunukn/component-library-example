@@ -1,5 +1,4 @@
-import 'components/base/_main.scss'; // this scss imports other depedencies
-import 'components/base/_typography.scss'; // module import typography, not scss import
+import 'components/styles';
 import './app.scss';
 
 import React from 'react';

@@ -38,7 +38,7 @@ export default class HomePage extends Component {
             </div>
           )}
         />
-        <Icon name="self_drive" width="100%" height="20rem" />
+        <Icon name="self_drive" width="100%" height="20rem" fill="tan" />
       </div>
     );
   }

@@ -61,7 +61,7 @@ module.exports = (env = {}, argv = {}) => {
       */
     },
     entry: {
-      //vendor: Object.keys(package.dependencies),
+      //vendor: Object.keys(package.dependencies), // not used
       ComponentLibraryExample: isProd ? [prodEntry] : [devEntry],
       ThirdPartyStylings: ['./src/third-party-stylings/example-of-third-party-styling.scss'],
     },
@@ -80,7 +80,7 @@ module.exports = (env = {}, argv = {}) => {
       hot: true,
       disableHostCheck: true,
       watchContentBase: true,
-      historyApiFallback: true,
+      historyApiFallback: true, // react-router
     },
     module: {
       rules: [
@@ -136,7 +136,7 @@ module.exports = (env = {}, argv = {}) => {
                 data:
                   '@import "_helpers.scss";' /* data and includePaths are setup used to make global vars and mixins work */,
                 includePaths: [
-                  path.join(__dirname, 'src/components/base'),
+                  path.join(__dirname, 'src/components/quarks'),
                 ] /* provide the path for _helpers.scss file */,
                 sourceMap: true,
               },

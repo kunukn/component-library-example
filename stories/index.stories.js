@@ -2,8 +2,7 @@
   https://youtu.be/AIAqaFFw7AY?t=12m6s
 */
 
-import 'components/base/_main.scss';
-import 'components/base/_typography.scss';
+import 'components/styles';
 import 'src/icon-system/icons.svg';
 import loadIcons from 'src/icon-system/loadIcons';
 
@@ -12,7 +11,9 @@ import ColorsStory from './Colors.story';
 import IconStory from 'components/atoms/Icon/Icon.story';
 import ButtonStory from 'components/molecules/Button/Button.story';
 
-loadIcons({ path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.svg' });
+// used for github pages
+// loadIcons({ path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.svg' });
+loadIcons(); // localhost
 
 FontsStory();
 ColorsStory();

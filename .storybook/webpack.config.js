@@ -35,7 +35,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
           loader: 'sass-loader',
           options: {
             data: '@import "_helpers.scss";',
-            includePaths: [path.join(root, 'src/components/base')],
+            includePaths: [path.join(root, 'src/components/quarks')],
             sourceMap: true
           }
         }

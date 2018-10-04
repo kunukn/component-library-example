@@ -1,6 +1,6 @@
 import './info-box.scss';
 import React from 'react';
-import { Button } from 'components/molecules';
+import { Button } from 'components';
 import { withAppState } from 'src/contexts';
 import { NAME_UPDATED, COUNT_UPDATED } from 'src/actions/actionTypes';
 import { loadData, loadData2 } from 'src/actions';
