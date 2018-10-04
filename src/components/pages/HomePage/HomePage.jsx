@@ -1,7 +1,6 @@
 import './home-page';
 import React, { Component } from 'react';
-import { Button, Icon, DataLoader } from 'components/atoms';
-import { InfoBox } from 'components/molecules';
+import { Icon, DataLoader, InfoBox, Button } from 'components';
 
 export default class HomePage extends Component {
   onClick = event => {
