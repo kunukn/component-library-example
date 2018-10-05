@@ -13,6 +13,7 @@
     "storybook1": "start-storybook -p 6006  -s ./",
     "build-storybook": "build-storybook -c .storybook -o .out",
     "test": "jest",
+    "test2": "node node_modules/jest/bin/jest.js",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "view-build": "browser-sync dist -w --port 4444",
