@@ -2,7 +2,7 @@ import './button.scss';
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { Icon } from 'components/atoms';
+import { Icon } from 'components';
 
 export default function Button({ children, onClick, disabled, className, modifiers, type, icon, iconPath }) {
   const modifiersArray = modifiers

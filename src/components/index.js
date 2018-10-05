@@ -1,7 +1,7 @@
-import { App } from 'components/app';
-import { Icon, DataLoader } from 'components/atoms';
-import { Button, InfoBox } from 'components/molecules';
-import loadIcons from 'src/icon-system/loadIcons';
-import { HomePage } from 'components/pages';
+/* Relative path due to Jest */
+import { Icon, DataLoader } from './atoms';
+import { Button, InfoBox } from './molecules';
+import { loadIcons } from '../icon-system';
+import { HomePage } from './pages';
 
-export { App, Icon, DataLoader, Button, loadIcons, InfoBox, HomePage };
+export { Icon, DataLoader, Button, loadIcons, InfoBox, HomePage };

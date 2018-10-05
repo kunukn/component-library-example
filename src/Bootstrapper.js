@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from 'components';
+import { App } from 'components/App';
 import 'whatwg-fetch';
 import Promise from 'promise';
 import 'src/icon-system/icons.svg'; // make it available as resource at url: /icons.svg

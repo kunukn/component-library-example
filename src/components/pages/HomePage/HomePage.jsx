@@ -1,4 +1,4 @@
-import './home-page';
+import './home-page.scss';
 import React, { Component } from 'react';
 import { Icon, DataLoader, InfoBox, Button } from 'components';
 

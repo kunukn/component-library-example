@@ -1,3 +1,4 @@
+import './about-page.scss';
 import React from 'react';
 
 class AboutPage extends React.Component {
