@@ -3,8 +3,13 @@ import React, { Component } from 'react';
 import { Icon, DataLoader, InfoBox, Button } from 'components';
 
 export default class HomePage extends Component {
+  state = {
+    loadData: false,
+  };
+
   onClick = event => {
     console.log(event);
+    this.setState({ loadData: true });
   };
 
   render() {
@@ -29,12 +34,13 @@ export default class HomePage extends Component {
         </InfoBox>
         <InfoBox />
         <DataLoader
-          disabled
-          url="https://jsonplaceholder.typicode.com/todos/1"
-          render={({ error, data, isLoading, url }) => (
+          loadOnMount={false}
+          url="/api/posts/1"
+          render={({ error, data, isLoading, url, reload, ...rest }) => (
             <div className="temp">
               <h3>DataLoader</h3>
-              <pre>{JSON.stringify({ error, data, isLoading, url }, null, 2)}</pre>
+              <Button onClick={reload}>reload</Button>
+              <pre>{JSON.stringify({ error, data, isLoading, url, ...rest }, null, 2)}</pre>
             </div>
           )}
         />

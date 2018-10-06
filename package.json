@@ -22,7 +22,8 @@
     "dsb": "npm run deploy-storybook -- --existing-output-dir=.out",
     "sm": "source-map-explorer dist/ComponentLibraryExample.js",
     "sm2": "source-map-explorer dist/vendors.js",
-    "build-deploy-storybook": "npm run build-storybook && npm run dsb"
+    "build-deploy-storybook": "npm run build-storybook && npm run dsb",
+    "dummy-api": "json-server --watch db.json --port 3210"
   },
   "repository": {
     "type": "git",

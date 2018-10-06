@@ -77,6 +77,7 @@ module.exports = (env = {}, argv = {}) => {
       publicPath: '/',
     },
     devServer: {
+      //https: true,
       port: 6007,
       contentBase: path.join(__dirname, ''),
       publicPath: '/',
@@ -85,6 +86,13 @@ module.exports = (env = {}, argv = {}) => {
       disableHostCheck: true,
       watchContentBase: true,
       historyApiFallback: true, // react-router
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3210',
+          secure: false,
+          pathRewrite: {'^/api' : ''}
+        }
+      },
     },
     module: {
       rules: [
