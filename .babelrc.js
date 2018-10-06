@@ -11,6 +11,7 @@ module.exports = {
         "extensions": [".js", ".jsx", ".css", ".scss"],
         "root": ["./src"],
         "alias": {
+          /* this is for Jest */
           "src": "./src",
           "components": "./src/components"
         }

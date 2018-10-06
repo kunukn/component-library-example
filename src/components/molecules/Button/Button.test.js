@@ -9,5 +9,6 @@ test('render button title', () => {
     children: 'test',
     onClick: () => console.log('clicked'),
   });
+
   expect(wrapper.contains('test')).toBe(true);
 });

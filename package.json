@@ -51,18 +51,7 @@
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|scss)$": "identity-obj-proxy",
-      "\\.(xcss|xscss)$": "<rootDir>/__mocks__/styleMock.js",
-      "^src/contexts$": "<rootDir>/src/contexts",
-      "^components$": "<rootDir>/src/components",
-      "^components/atoms$": "<rootDir>/src/components/atoms",
-      "^components/molecules$": "<rootDir>/src/components/molecules",
-      "^components/organisms$": "<rootDir>/src/components/organisms",
-      "^components/pages$": "<rootDir>/src/components/pages",
-      "^components/templates$": "<rootDir>/src/components/templates",
-      "^components/app$": "<rootDir>/src/components/app",
-      "^src/icon-system$": "<rootDir>/src/icon-system",
-      "^src/utils$": "<rootDir>/src/utils",
-      "^components/styles$": "<rootDir>/src/components/styles"
+      "\\.(xcss|xscss)$": "<rootDir>/__mocks__/styleMock.js"
     },
     "testEnvironment": "node",
     "testURL": "http://localhost",
