@@ -110,7 +110,6 @@ module.exports = (baseConfig, env, defaultConfig) => {
   defaultConfig.resolve.alias.root = root;
   defaultConfig.resolve.alias.src = path.resolve(root, 'src');
   defaultConfig.resolve.alias.components = path.resolve(root, 'src/components');
-  defaultConfig.resolve.alias.styles = path.resolve(root, 'src/styles');
 
   // fix: enable static assets defaultConfig.output.publicPath =
   // 'http://localhost:6006/';

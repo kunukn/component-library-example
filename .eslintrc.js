@@ -1,4 +1,11 @@
 module.exports = {
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  },
   extends: [
     'react-app', 'plugin:jsx-a11y/recommended', 'prettier', 'prettier/react'
   ],

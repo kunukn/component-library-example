@@ -1,4 +1,7 @@
-// webpack 4+
+ /*
+ * webpack 4+
+ * */
+
 const path = require('path');
 const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -76,6 +79,7 @@ module.exports = (env = {}, argv = {}) => {
     devServer: {
       port: 6007,
       contentBase: path.join(__dirname, ''),
+      publicPath: '/',
       open: true,
       hot: true,
       disableHostCheck: true,
@@ -222,12 +226,11 @@ module.exports = (env = {}, argv = {}) => {
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ].filter(Boolean),
     resolve: {
+      //modules: [path.resolve(__dirname), 'node_modules'],
       extensions: ['.js', '.jsx', '.scss'],
       alias: {
-        root: __dirname,
         src: path.resolve(__dirname, 'src'),
         components: path.resolve(__dirname, 'src/components'),
-        styles: path.resolve(__dirname, 'src/styles'),
       },
     },
     externals: {},

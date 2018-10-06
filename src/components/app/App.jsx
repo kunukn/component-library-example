@@ -1,8 +1,8 @@
-import 'components/styles';
+import 'src/components/styles';
 import './app.scss';
 
 import React from 'react';
-import { Icon, HomePage } from 'components';
+import { Icon, HomePage } from 'src/components';
 import { AppContext } from 'src/contexts';
 import { appReducer } from 'src/reducers';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';

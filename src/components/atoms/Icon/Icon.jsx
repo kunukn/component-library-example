@@ -42,7 +42,7 @@ Icon.defaultProps = {
   name: 'chevron',
   width: null,
   height: null,
-  color: 'currentColor',
+  color: null,
   fill: 'currentColor',
   modifiers: '',
 };
