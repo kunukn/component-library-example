@@ -170,7 +170,7 @@ module.exports = (env = {}, argv = {}) => {
         },*/
         {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-          include: path.resolve(__dirname, ''),
+          include: [path.resolve(__dirname, '')],
           use: [
             {
               loader: 'file-loader',
@@ -184,7 +184,7 @@ module.exports = (env = {}, argv = {}) => {
         },
         {
           test: /\.(svg)(\?v=\d+\.\d+\.\d+)?$/,
-          include: path.resolve(__dirname, 'src/icon-system'),
+          include: [path.resolve(__dirname, 'src/icon-system')],
           use: [
             {
               loader: 'file-loader',
@@ -237,6 +237,7 @@ module.exports = (env = {}, argv = {}) => {
       //modules: [path.resolve(__dirname), 'node_modules'],
       extensions: ['.js', '.jsx', '.scss'],
       alias: {
+        root: __dirname,
         src: path.resolve(__dirname, 'src'),
         components: path.resolve(__dirname, 'src/components'),
       },
