@@ -2,9 +2,9 @@ import './button.scss';
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { Icon } from 'components';
+//import { Icon } from 'components';
 
-export default function Button({ children, onClick, disabled, className, modifiers, type, icon, iconPath }) {
+export default function Button({ children, onClick, disabled, className, modifiers, type, icon }) {
   const modifiersArray = modifiers
     .trim()
     .split(' ')
@@ -12,35 +12,32 @@ export default function Button({ children, onClick, disabled, className, modifie
     .filter(Boolean);
   const cssModifiers = modifiersArray.map(m => `button--${m}`);
 
-  let hasIcon = icon || iconPath;
-
   return (
     <button
-      className={cx('button', cssModifiers, { 'button--with-icon': hasIcon }, className)}
+      className={cx(
+        'button',
+        cssModifiers,
+        {
+          'button--with-icon': !!icon,
+        },
+        className
+      )}
       onClick={onClick}
       type={type}
       disabled={disabled}
     >
-      {!hasIcon && children}
-      {hasIcon && (
-        <Fragment>
-          <div className="button__text">{children}</div>
-          <Icon name={icon} path={iconPath} modifiers="button" />
-        </Fragment>
-      )}
+      <div className="button__text">{children}</div> {icon}
     </button>
   );
 }
-
 Button.propTypes = {
   onClick: PropTypes.func.isRequired,
   children: PropTypes.any.isRequired,
   name: PropTypes.string,
   className: PropTypes.string,
   modifiers: PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.any,
 };
-
 Button.defaultProps = {
   className: '',
   modifiers: '',

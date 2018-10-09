@@ -19,13 +19,13 @@ export default class HomePage extends Component {
           <div>
             <Icon name="triangle" />
           </div>
-          <Button modifiers="call-to-action" icon="facebook" onClick={this.onClick}>
+          <Button modifiers="light-border" icon={<Icon fill="#3B5998" name="facebook" />} onClick={this.onClick}>
             Click me
           </Button>
-          <Button modifiers="call-to-action full-width" icon="chevron" onClick={this.onClick}>
+          <Button modifiers="call-to-action full-width" icon={<Icon name="chevron" />} onClick={this.onClick}>
             Click me
           </Button>
-          <Button modifiers="full-width" onClick={this.onClick}>
+          <Button modifiers="dark-border full-width" onClick={this.onClick}>
             Click me
           </Button>
           <Button disabled modifiers="full-width" onClick={this.onClick}>
@@ -39,7 +39,9 @@ export default class HomePage extends Component {
           render={({ error, data, isLoading, url, reload, ...rest }) => (
             <div className="temp">
               <h3>DataLoader</h3>
-              <Button onClick={reload}>reload</Button>
+              <Button modifiers="light-border" onClick={reload}>
+                reload
+              </Button>
               <pre>{JSON.stringify({ error, data, isLoading, url, ...rest }, null, 2)}</pre>
             </div>
           )}

@@ -116,16 +116,16 @@ usage description here
 ## React
 
 ~~~jsx
-<Icon fill='blue' width={50} height={50} name='facebook' />
+<Icon fill='#3B5998' width={50} height={50} name='facebook' />
 ~~~
-      `)(() => <Icon {...props} fill="blue" width={50} height={50} name="facebook" />)
+      `)(() => <Icon {...props} fill="#3B5998" width={50} height={50} name="facebook" />)
     )
     .add(
       'linkedin',
       withMarkdownNotes(`
 ~~~jsx
-<Icon width={100} height={100} name='linkedin' />
+<Icon width={100} height={100} name='linkedin' fill="#0077B5" />
 ~~~
-      `)(() => <Icon {...props} width={100} height={100} name="linkedin" />)
+      `)(() => <Icon {...props} width={100} height={100} name="linkedin" fill="#0077B5" />)
     );
 }

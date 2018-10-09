@@ -39,11 +39,11 @@
     }
   }
 
-  &--with-dark-border {
+  &--dark-border {
     border-color: #444;
   }
 
-  &--with-light-border {
+  &--light-border {
     border-color: #ccc;
   }
 
@@ -55,8 +55,11 @@
     pointer-events: none;
   }
 
-  > .icon {
-    margin-left: 0.5rem;
+  > .icon,
+  &__icon {
+    margin-left: 0.8rem;
     pointer-events: none;
+    width: 1.6rem;
+    height: 1.6rem;
   }
 }

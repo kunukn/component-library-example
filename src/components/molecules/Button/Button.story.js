@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import { Icon } from 'components';
 import { storiesOf } from '@storybook/react';
 import { withNotes, withMarkdownNotes } from '@storybook/addon-notes';
 import { action } from '@storybook/addon-actions';
@@ -45,21 +46,20 @@ usage description here
 
 ~~~jsx
 <Button
-  icon='chevron'
+  icon={<Icon name="chevron" />}
   onClick={this.onClick}
 >
   Click me
 </Button>
 ~~~
       `)(() => (
-        <Button {...props} icon="chevron" onClick={action('clicked')}>
+        <Button {...props} icon={<Icon name="chevron" />} onClick={action('clicked')}>
           Click me
         </Button>
       ))
     )
-
     .add(
-      'default with icon path',
+      'default with icon and light border',
       withMarkdownNotes(`
 # Button call to action
 
@@ -69,14 +69,15 @@ usage description here
 
 ~~~jsx
 <Button
-  iconPath='/icons.svg#chevron'
+  modifiers="light-border"  
+  icon={<Icon name="chevron" />}
   onClick={this.onClick}
 >
   Click me
 </Button>
 ~~~
       `)(() => (
-        <Button {...props} iconPath="/icons.svg#chevron" onClick={action('clicked')}>
+        <Button {...props} modifiers="light-border" icon={<Icon name="chevron" />} onClick={action('clicked')}>
           Click me
         </Button>
       ))
@@ -117,14 +118,14 @@ usage description here
 ~~~jsx
 <Button
   modifiers='call-to-action'
-  icon='chevron'
+  icon={<Icon name="chevron" />}
   onClick={this.onClick}
 >
   Click me
 </Button>
 ~~~
       `)(() => (
-        <Button {...props} icon="chevron" modifiers="call-to-action" onClick={action('clicked')}>
+        <Button {...props} icon={<Icon name="chevron" />} modifiers="call-to-action" onClick={action('clicked')}>
           Click me
         </Button>
       ))
@@ -141,14 +142,14 @@ usage description here
 ~~~jsx
 <Button
   disabled
-  icon='chevron'
+  icon={<Icon name="chevron" />}
   onClick={this.onClick}
 >
   Click me
 </Button>
 ~~~
       `)(() => (
-        <Button {...props} icon="chevron" disabled onClick={action('clicked')}>
+        <Button {...props} icon={<Icon name="chevron" />} disabled onClick={action('clicked')}>
           Click me
         </Button>
       ))
@@ -167,14 +168,20 @@ usage description here
 <Button
   disabled
   modifiers='call-to-action'
-  icon='chevron'
+  icon={<Icon name="chevron" />}
   onClick={this.onClick}
 >
   Click me
 </Button>
 ~~~
       `)(() => (
-        <Button {...props} icon="chevron" disabled modifiers="call-to-action" onClick={action('clicked')}>
+        <Button
+          {...props}
+          icon={<Icon name="chevron" />}
+          disabled
+          modifiers="call-to-action"
+          onClick={action('clicked')}
+        >
           Click me
         </Button>
       ))
@@ -192,14 +199,19 @@ usage description here
 ~~~jsx
 <Button
   modifiers='full-width call-to-action'
-  icon='chevron'
+  icon={<Icon name="chevron" />}
   onClick={this.onClick}
 >
   Click me
 </Button>
 ~~~
       `)(() => (
-        <Button {...props} icon="chevron" modifiers="call-to-action full-width" onClick={action('clicked')}>
+        <Button
+          {...props}
+          icon={<Icon name="chevron" />}
+          modifiers="call-to-action full-width"
+          onClick={action('clicked')}
+        >
           Click me
         </Button>
       ))
