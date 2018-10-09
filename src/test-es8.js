@@ -13,7 +13,7 @@ export default () => {
   };
   (async () => {
     await foo();
-    log('after foot');
+    log('after foo');
   })();
 
   log(...[1, 2, 3]);
