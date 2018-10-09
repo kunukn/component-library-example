@@ -13,7 +13,7 @@
   display: inline-block;
 
   &:hover:not([disabled]) {
-    background: rgba(gray, 0.1);
+    background: rgba(gray, 0.05);
   }
 
   &--with-icon {
@@ -45,6 +45,10 @@
 
   &--light-border {
     border-color: #ccc;
+  }
+
+  &--ladies-border {
+    border-color: hotpink;
   }
 
   &--full-width {

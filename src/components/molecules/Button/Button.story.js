@@ -70,14 +70,19 @@ usage description here
 ~~~jsx
 <Button
   modifiers="light-border"  
-  icon={<Icon name="chevron" />}
+  icon={<Icon name="chevron" fill="#ccc" />}
   onClick={this.onClick}
 >
   Click me
 </Button>
 ~~~
       `)(() => (
-        <Button {...props} modifiers="light-border" icon={<Icon name="chevron" />} onClick={action('clicked')}>
+        <Button
+          {...props}
+          modifiers="light-border"
+          icon={<Icon name="chevron" fill="#ccc" />}
+          onClick={action('clicked')}
+        >
           Click me
         </Button>
       ))
@@ -188,9 +193,9 @@ usage description here
     )
 
     .add(
-      'full-width call to action with icon',
+      'full-width ladies-border with icon',
       withMarkdownNotes(`
-# Button call to action
+# Button
 
 usage description here
 
@@ -198,8 +203,8 @@ usage description here
 
 ~~~jsx
 <Button
-  modifiers='full-width call-to-action'
-  icon={<Icon name="chevron" />}
+  modifiers="ladies-border full-width"
+  icon={<Icon name="chevron" fill="hotpink" />}
   onClick={this.onClick}
 >
   Click me
@@ -208,8 +213,8 @@ usage description here
       `)(() => (
         <Button
           {...props}
-          icon={<Icon name="chevron" />}
-          modifiers="call-to-action full-width"
+          icon={<Icon name="chevron" fill="hotpink" />}
+          modifiers="ladies-border full-width"
           onClick={action('clicked')}
         >
           Click me

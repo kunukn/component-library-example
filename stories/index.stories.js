@@ -11,8 +11,8 @@ import ColorsStory from './Colors.story';
 import { IconStory, ButtonStory } from 'components/stories';
 
 // used for github pages
-// loadIcons({ path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.svg' });
-loadIcons(); // localhost
+loadIcons({ path: 'https://unpkg.com/@kunukn/component-library-example/dist/icons.svg' });
+//loadIcons(); // localhost
 
 FontsStory();
 ColorsStory();
