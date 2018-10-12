@@ -43,7 +43,7 @@ let IconAndButtonExample = () => <div>
 
   <Button
      modifiers="call-to-action full-width"
-     icon='chevron'
+     icon={<Icon name='chevron'/>}
      onClick={event=>{}}
   >
    Click me
