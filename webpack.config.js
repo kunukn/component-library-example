@@ -1,4 +1,4 @@
- /*
+/*
  * webpack 4+
  * */
 
@@ -47,10 +47,18 @@ module.exports = (env = {}, argv = {}) => {
       minimizer: [
         isProd &&
           new UglifyJsPlugin({
-             cache: true,
-             parallel: true,
-             sourceMap: true,
-             extractComments: true,
+            uglifyOptions: {
+              compress: {
+                drop_console: true,
+              },
+              output: {
+                comments: false,
+              },
+            },
+            cache: true,
+            parallel: true,
+            sourceMap: true,
+            extractComments: true,
           }),
         isProd &&
           new OptimizeCSSAssetsPlugin({
@@ -90,8 +98,8 @@ module.exports = (env = {}, argv = {}) => {
         '/api': {
           target: 'http://localhost:4321',
           secure: false,
-          pathRewrite: {'^/api' : ''}
-        }
+          pathRewrite: { '^/api': '' },
+        },
       },
     },
     module: {
