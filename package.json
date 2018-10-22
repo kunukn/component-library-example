@@ -11,7 +11,7 @@
     "deploy": "webpack --mode production",
     "storybook": "start-storybook -p 6006",
     "storybook1": "start-storybook -p 6006  -s ./",
-    "build-storybook": "build-storybook -c .storybook -o .out",
+    "build-storybook-to-out": "build-storybook -c .storybook -o .out",
     "test": "jest",
     "test2": "node node_modules/jest/bin/jest.js",
     "test:watch": "jest --watch",
@@ -19,11 +19,11 @@
     "view-build": "browser-sync dist -w --port 4444",
     "view-storybook": "browser-sync .out -w --port 4445",
     "deploy-storybook": "storybook-to-ghpages",
-    "dsb": "npm run deploy-storybook -- --existing-output-dir=.out",
+    "deploy-storybook-from-out": "npm run deploy-storybook -- --existing-output-dir=.out",
     "sm": "source-map-explorer dist/ComponentLibraryExample.js",
     "sm2": "source-map-explorer dist/vendors.js",
-    "build-deploy-storybook": "npm run build-storybook && npm run dsb",
-    "dummy-api": "json-server --watch server/db.json --port 4321"
+    "build-deploy-storybook": "npm run build-storybook-to-out && npm run deploy-storybook-from-out",
+    "dummy-api": "node server/apiServer.js --port 5555"
   },
   "repository": {
     "type": "git",
@@ -147,7 +147,9 @@
     "webpack-dev-server": "^3.1.9",
     "webpack-hot-middleware": "^2.24.2",
     "webpack-md5-hash": "0.0.6",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.0.0",
+    "express": "4.16.4",
+    "minimist": "1.2.0"
   },
   "dependencies": {
     "classnames": "^2.2.6",
