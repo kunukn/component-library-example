@@ -42,9 +42,12 @@ export default class DataLoader extends React.Component {
     });
 
     try {
+      let { data, status } = await getJsonAsync(this.props.url);
+
       this.setState({
-        data: await getJsonAsync(this.props.url, console.log.bind(console)),
+        data,
         isLoading: false,
+        hasError: status >= 400,
       });
     } catch (exception) {
       this.setState({

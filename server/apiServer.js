@@ -19,10 +19,24 @@ app.get('/posts', (req, res, next) => {
   res.json(db.posts);
 });
 
+app.get('/posts/1', (req, res, next) => {
+  res.json(db.posts);
+});
+
 app.post('/comments', (req, res, next) => {
   res.json(db.comments);
 });
 
 app.get('/profile', (req, res, next) => {
   res.json(db.profile);
+});
+
+app.get('/400', (req, res, next) => {
+  res.status(400);
+  res.json({ company: ['The Company field is required.'] });
+});
+
+app.get('/500', (req, res, next) => {
+  res.status(500);
+  res.json({ error: ['some error.'] });
 });
