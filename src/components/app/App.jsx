@@ -1,13 +1,13 @@
-import 'src/components/styles';
+import 'components/styles';
 import './app.scss';
 
 import React, { lazy, Suspense, Component } from 'react';
-import { Icon, HomePage } from 'src/components';
+import { Icon, HomePage, Text } from 'components';
 import { AppContext } from 'src/contexts';
 import { appReducer } from 'src/reducers';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-const OtherComponent = lazy(() => import('./OtherComponent'));
+const MyText = lazy(() => import('components/atoms/Text'));
 
 const A = () => (
   <div>
@@ -38,7 +38,7 @@ function appDispatchResolver(app, action) {
   }
 }
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
 
@@ -65,8 +65,11 @@ export default class App extends React.Component {
           <Router>
             <React.Fragment>
               <Suspense fallback={<div> Loading ...</div>}>
-                <OtherComponent />
+                <MyText>lazy loaded text here</MyText>
               </Suspense>
+              <Text modifiers="uppercase" className="hello">
+                hello
+              </Text>
               <ul>
                 <li>
                   <Link to="/">Home</Link>

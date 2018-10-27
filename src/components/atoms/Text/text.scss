@@ -1,0 +1,7 @@
+.text {
+  color: gray;
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+}
