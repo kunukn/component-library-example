@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --color --mode development",
     "start2": "nodemon --watch webpack.config.js ./node_modules/.bin/webpack-dev-server --color --mode development",
     "build": "webpack --mode production",
-    "deploy": "webpack --mode production",
+    "build:dev": "webpack --mode development",
     "storybook": "start-storybook -p 6006",
     "storybook1": "start-storybook -p 6006  -s ./",
     "build-storybook-to-out": "build-storybook -c .storybook -o .out",
