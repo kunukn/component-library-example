@@ -1,11 +1,13 @@
 import 'src/components/styles';
 import './app.scss';
 
-import React from 'react';
+import React, { lazy, Suspense, Component } from 'react';
 import { Icon, HomePage } from 'src/components';
 import { AppContext } from 'src/contexts';
 import { appReducer } from 'src/reducers';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+
+const OtherComponent = lazy(() => import('./OtherComponent'));
 
 const A = () => (
   <div>
@@ -62,6 +64,9 @@ export default class App extends React.Component {
         <AppContext.Provider value={this.state}>
           <Router>
             <React.Fragment>
+              <Suspense fallback={<div> Loading ...</div>}>
+                <OtherComponent />
+              </Suspense>
               <ul>
                 <li>
                   <Link to="/">Home</Link>

@@ -40,12 +40,18 @@
     "storybook",
     "BEM"
   ],
-  "author": "",
+  "author": "kunukn",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/kunukn/component-library-example/issues"
   },
   "homepage": "https://github.com/kunukn/component-library-example#readme",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/test/jestSetup.js",
     "snapshotSerializers": [],
