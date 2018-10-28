@@ -33,7 +33,7 @@ app.get('/profile', (req, res, next) => {
 
 app.get('/400', (req, res, next) => {
   res.status(400);
-  res.json({ company: ['The Company field is required.'] });
+  res.json({ data: ['The data field is required.'] });
 });
 
 app.get('/500', (req, res, next) => {
