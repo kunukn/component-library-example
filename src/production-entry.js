@@ -1,6 +1,6 @@
 import React from 'react';
 
-import 'components/styles';
+import 'components/quarks/styles';
 
 import loadIcons from 'src/icon-system/loadIcons';
 

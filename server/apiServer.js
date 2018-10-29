@@ -16,27 +16,33 @@ app.get('/', (req, res, next) => {
 });
 
 app.get('/posts', (req, res, next) => {
-  res.json(db.posts);
+  res.setHeader('Content-Type', 'application/json');
+  setTimeout(() => res.send(db.posts), 500);
 });
 
 app.get('/posts/1', (req, res, next) => {
-  res.json(db.posts);
+  res.setHeader('Content-Type', 'application/json');
+  setTimeout(() => res.send(db.posts), 500);
 });
 
 app.post('/comments', (req, res, next) => {
-  res.json(db.comments);
+  res.setHeader('Content-Type', 'application/json');
+  setTimeout(() => res.send(db.comments), 500);
 });
 
 app.get('/profile', (req, res, next) => {
-  res.json(db.profile);
+  res.setHeader('Content-Type', 'application/json');
+  setTimeout(() => res.send(db.profile), 500);
 });
 
 app.get('/400', (req, res, next) => {
   res.status(400);
-  res.json({ data: ['The data field is required.'] });
+  res.setHeader('Content-Type', 'application/json');
+  setTimeout(() => res.send({ data: ['The data field is required.'] }), 500);
 });
 
 app.get('/500', (req, res, next) => {
   res.status(500);
-  res.json({ error: ['some error.'] });
+  res.setHeader('Content-Type', 'application/json');
+  setTimeout(() => res.send({ error: ['some error.'] }), 500);
 });

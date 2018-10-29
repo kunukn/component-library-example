@@ -1,4 +1,4 @@
-import 'components/styles';
+import 'components/quarks/styles';
 import './app.scss';
 
 import React, { lazy, Suspense, Component } from 'react';

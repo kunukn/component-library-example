@@ -2,7 +2,7 @@
   https://youtu.be/AIAqaFFw7AY?t=12m6s
 */
 
-import 'components/styles';
+import 'components/quarks/styles';
 import 'src/icon-system/icons.svg';
 import loadIcons from 'src/icon-system/loadIcons';
 
