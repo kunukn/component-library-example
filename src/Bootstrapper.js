@@ -1,7 +1,7 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
-import { App } from 'src/components/App';
+import App from 'src/components/app/App';
 import 'whatwg-fetch';
 import Promise from 'promise';
 import 'src/icon-system/icons.svg'; // make it available as resource at url: /icons.svg

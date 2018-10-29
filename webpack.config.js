@@ -176,14 +176,13 @@ module.exports = (env = {}, argv = {}) => {
         },*/
         {
           test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-          include: [path.resolve(__dirname, '')],
+          include: [path.resolve(__dirname, 'fonts')],
           use: [
             {
               loader: 'file-loader',
               options: {
                 name: 'fonts/[name].[ext]',
                 mimetype: 'application/font-woff',
-                // outputPath: 'fonts/', publicPath: '../', useRelativePath: isProd
               }
             }
           ]

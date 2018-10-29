@@ -8,6 +8,4 @@ import DataLoader from 'components/atoms/DataLoader/DataLoader';
 import Icon from 'components/atoms/Icon/Icon';
 import Button from 'components/molecules/Button/Button';
 
-const Hello = () => 'hello';
-
-export { loadIcons, DataLoader, Button, Icon, Hello };
+export { loadIcons, DataLoader, Button, Icon };
