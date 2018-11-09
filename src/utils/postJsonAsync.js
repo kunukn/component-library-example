@@ -8,13 +8,11 @@ export default async function postJsonAsync(url, options) {
     body: JSON.stringify(options),
   });
 
-  const contentType = response.headers.get('content-type');
+  let data = null;
+  let text = await response.text();
 
-  let data;
-  if (contentType && contentType.indexOf('application/json') !== -1) {
-    data = await response.json();
-  } else {
-    data = await response.text();
+  if (text) {
+    data = JSON.parse(text);
   }
 
   return { data, status: response.status };

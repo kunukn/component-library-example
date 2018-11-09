@@ -30,6 +30,12 @@ app.post('/comments', (req, res, next) => {
   setTimeout(() => res.send(db.comments), 500);
 });
 
+app.post('/post', (req, res, next) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.status(200);
+  res.send();
+});
+
 app.get('/profile', (req, res, next) => {
   res.setHeader('Content-Type', 'application/json');
   setTimeout(() => res.send(db.profile), 500);
