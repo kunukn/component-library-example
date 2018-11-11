@@ -135,6 +135,7 @@
     "immer": "1.7.4",
     "jest": "^23.6.0",
     "lodash": "^4.17.11",
+    "lodash.camelcase": "^4.3.0",
     "mini-css-extract-plugin": "^0.4.4",
     "minimist": "1.2.0",
     "node-sass": "^4.10.0",
