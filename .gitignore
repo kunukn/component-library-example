@@ -65,4 +65,4 @@ typings/
 dist/
 .out/
 .DS_Store
-
+.build-cache/
