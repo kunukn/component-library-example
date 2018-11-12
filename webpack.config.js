@@ -10,7 +10,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
 const package = require('./package.json');
@@ -42,17 +41,7 @@ module.exports = (env = {}, argv = {}) => {
       // https://twitter.com/wSokra/status/969679223278505985 runtimeChunk: true,
 
       minimizer: [
-        isProd && new TerserPlugin({
-          sourceMap: true, /* cheap-source-map options don't work with this plugin. */
-          parallel: true,
-          cache: './.build_cache/terser',
-          exclude: /dist/,
-          terserOptions: {
-            warnings: false,
-            ie8: false
-          }
-        }),
-        false && isProd && new UglifyJsPlugin({
+        isProd && new UglifyJsPlugin({
           uglifyOptions: {
             compress: {
               drop_console: true
