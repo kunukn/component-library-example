@@ -3,7 +3,6 @@
  * */
 
 const path = require('path');
-const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -12,27 +11,23 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpack = require('webpack');
-const package = require('./package.json');
 
-const IsWebpackDevServer = /webpack-dev-server/.test(process.env.npm_lifecycle_script);
+//const autoprefixer = require('autoprefixer');
+//const package = require('./package.json');
+
+//const IsWebpackDevServer = /webpack-dev-server/.test(process.env.npm_lifecycle_script);
 
 module.exports = (env = {}, argv = {}) => {
   const isProd = argv.mode === 'production';
 
-  console.log('***', isProd
-    ? 'prod'
-    : 'dev', '***');
+  console.log('***', isProd ? 'prod' : 'dev', '***');
 
   let prodEntry = './src/production-entry';
-  let devEntry = './src/Bootstrapper';
+  let devEntry = './src/development-entry';
 
   let config = {
-    devtool: isProd
-      ? 'source-map'
-      : 'cheap-module-source-map',
-    mode: isProd
-      ? 'production'
-      : 'development',
+    devtool: isProd ? 'source-map' : 'cheap-module-source-map',
+    mode: isProd ? 'production' : 'development',
     optimization: {
       // minimize: false, // is default true in prod mode splitChunks: {   cacheGroups:
       // {     commons: {       test: /[\\/]node_modules[\\/]/,       name: 'vendors',
@@ -41,25 +36,27 @@ module.exports = (env = {}, argv = {}) => {
       // https://twitter.com/wSokra/status/969679223278505985 runtimeChunk: true,
 
       minimizer: [
-        isProd && new UglifyJsPlugin({
-          uglifyOptions: {
-            compress: {
-              drop_console: true
+        isProd &&
+          new UglifyJsPlugin({
+            uglifyOptions: {
+              compress: {
+                drop_console: true,
+              },
+              output: {
+                comments: false,
+              },
             },
-            output: {
-              comments: false
-            }
-          },
-          cache: true,
-          parallel: true,
-          sourceMap: true,
-          extractComments: true
-        }),
-        isProd && new OptimizeCSSAssetsPlugin({
-          cssProcessorOptions: {
-            sourcemap: true
-          }
-        })
+            cache: true,
+            parallel: true,
+            sourceMap: true,
+            extractComments: true,
+          }),
+        isProd &&
+          new OptimizeCSSAssetsPlugin({
+            cssProcessorOptions: {
+              sourcemap: true,
+            },
+          }),
       ].filter(Boolean),
 
       /*
@@ -69,10 +66,8 @@ module.exports = (env = {}, argv = {}) => {
     },
     entry: {
       //vendor: Object.keys(package.dependencies), // not used
-      ComponentLibraryExample: isProd
-        ? [prodEntry]
-        : [devEntry],
-      ThirdPartyStylings: ['./src/third-party-stylings/example-of-third-party-styling.scss']
+      ComponentLibraryExample: isProd ? [prodEntry] : [devEntry],
+      ThirdPartyStylings: ['./src/third-party-stylings/example-of-third-party-styling.scss'],
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -80,7 +75,7 @@ module.exports = (env = {}, argv = {}) => {
       filename: '[name].js',
       library: 'ComponentLibraryExample',
       libraryTarget: 'umd',
-      publicPath: '/'
+      publicPath: '/',
     },
     devServer: {
       //https: true,
@@ -97,10 +92,10 @@ module.exports = (env = {}, argv = {}) => {
           target: 'http://localhost:5555',
           secure: false,
           pathRewrite: {
-            '^/api': ''
-          }
-        }
-      }
+            '^/api': '',
+          },
+        },
+      },
     },
     module: {
       rules: [
@@ -111,55 +106,60 @@ module.exports = (env = {}, argv = {}) => {
             {
               loader: 'html-loader',
               options: {
-                minimize: isProd
-              }
-            }
-          ]
-        }, {
+                minimize: isProd,
+              },
+            },
+          ],
+        },
+        {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           include: path.join(__dirname, 'src'),
           use: {
-            loader: 'babel-loader'
-          }
-        }, {
+            loader: 'babel-loader',
+          },
+        },
+        {
           test: /\.scss$/,
           exclude: /node_modules/,
           include: path.join(__dirname, 'src'),
           use: [
             {
-              loader: isProd
-                ? MiniCssExtractPlugin.loader
-                : 'style-loader',
+              loader: isProd ? MiniCssExtractPlugin.loader : 'style-loader',
               options: isProd
                 ? {
-                  publicPath: './'
-                }
-                : {}
-            }, {
+                    publicPath: './',
+                  }
+                : {},
+            },
+            {
               loader: 'css-loader',
               options: {
-                minimize: isProd || {
-                  /* CSSNano Options */
-                },
-                sourceMap: true
-              }
-            }, {
+                minimize:
+                  isProd ||
+                  {
+                    /* CSSNano Options */
+                  },
+                sourceMap: true,
+              },
+            },
+            {
               loader: 'postcss-loader',
               options: {
-                sourceMap: true
-              }
-            }, {
+                sourceMap: true,
+              },
+            },
+            {
               loader: 'sass-loader',
               options: {
                 data: '@import "_helpers.scss";',
                 /* data and includePaths are setup used to make global vars and mixins work */
                 includePaths: [path.join(__dirname, 'src/components/quarks')],
                 /* provide the path for _helpers.scss file */
-                sourceMap: true
-              }
-            }
-          ]
+                sourceMap: true,
+              },
+            },
+          ],
         },
         /*{
           test: /\.(png|woff(2)?|eot|ttf|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -183,10 +183,11 @@ module.exports = (env = {}, argv = {}) => {
               options: {
                 name: 'fonts/[name].[ext]',
                 mimetype: 'application/font-woff',
-              }
-            }
-          ]
-        }, {
+              },
+            },
+          ],
+        },
+        {
           test: /\.(svg)(\?v=\d+\.\d+\.\d+)?$/,
           include: [path.resolve(__dirname, 'src/icon-system')],
           use: [
@@ -194,46 +195,56 @@ module.exports = (env = {}, argv = {}) => {
               loader: 'file-loader',
               options: {
                 name: '[name].[ext]',
-                mimetype: 'image/svg+xml'
-              }
-            }
-          ]
-        }
-      ].filter(Boolean)
+                mimetype: 'image/svg+xml',
+              },
+            },
+          ],
+        },
+      ].filter(Boolean),
     },
     plugins: [
       isProd && new CleanWebpackPlugin('dist', {}),
-      new MiniCssExtractPlugin({filename: '[name].css', chunkFilename: '[name]-[id].css'}),
-      new HtmlWebpackPlugin({compile: false, inject: true, hash: true, template: 'src/index.html', filename: 'index.html'}),
+      new MiniCssExtractPlugin({ filename: '[name].css', chunkFilename: '[name]-[id].css' }),
+      new HtmlWebpackPlugin({
+        compile: false,
+        inject: true,
+        hash: true,
+        template: 'src/index.html',
+        filename: 'index.html',
+      }),
       // This is necessary to emit hot updates (currently CSS only):
       !isProd && new webpack.HotModuleReplacementPlugin(),
       new WebpackMd5Hash(),
-      isProd && new CopyWebpackPlugin([
-        {
-          from: 'fonts/font.css',
-          to: 'fonts/font.css'
-        }, {
-          from: 'src/icon-system/icons.min.svg',
-          to: 'icons.min.svg'
-        }, {
-          from: 'src/icon-system/icons.svg',
-          to: 'icons.svg'
-        }
-      ], {}),
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+      isProd &&
+        new CopyWebpackPlugin(
+          [
+            {
+              from: 'fonts/font.css',
+              to: 'fonts/font.css',
+            },
+            {
+              from: 'src/icon-system/icons.min.svg',
+              to: 'icons.min.svg',
+            },
+            {
+              from: 'src/icon-system/icons.svg',
+              to: 'icons.svg',
+            },
+          ],
+          {}
+        ),
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     ].filter(Boolean),
     resolve: {
       //modules: [path.resolve(__dirname), 'node_modules'],
-      extensions: [
-        '.js', '.jsx', '.scss'
-      ],
+      extensions: ['.js', '.jsx', '.scss'],
       alias: {
         root: __dirname,
         src: path.resolve(__dirname, 'src'),
-        components: path.resolve(__dirname, 'src/components')
-      }
+        components: path.resolve(__dirname, 'src/components'),
+      },
     },
-    externals: {}
+    externals: {},
   };
 
   if (isProd) {
@@ -242,14 +253,14 @@ module.exports = (env = {}, argv = {}) => {
       commonjs2: 'react',
       commonjs: 'react',
       amd: 'react',
-      umd: 'react'
+      umd: 'react',
     };
     config.externals['react-dom'] = {
       root: 'ReactDOM',
       commonjs2: 'react-dom',
       commonjs: 'react-dom',
       amd: 'react-dom',
-      umd: 'react-dom'
+      umd: 'react-dom',
     };
   }
 
