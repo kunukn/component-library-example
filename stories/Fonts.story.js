@@ -42,7 +42,7 @@ usage description here
           <Letters title="DFDS Font regular" />
           <hr />
 
-          <Letters title="DFDS Font light" fontWeight={100} />
+          <Letters title="DFDS Font light" fontWeight={300} />
           <hr />
 
           <Letters title="DFDS Font bold" fontWeight="bold" />
