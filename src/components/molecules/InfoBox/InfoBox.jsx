@@ -5,11 +5,11 @@ import { Button } from 'components';
 import { withAppState } from 'src/contexts';
 import { NAME_UPDATED, COUNT_UPDATED } from 'src/actions/actionTypes';
 import { loadData, loadData2 } from 'src/actions';
-import { getModifiersArray, E, M } from 'src/utils';
+import { getModifiersArray, elementFactory, modifierFactory } from 'src/utils';
 
 const BLOCK = 'info-box';
-const e = element => E(BLOCK, element);
-const m = modifier => M(BLOCK, modifier);
+const E = elementFactory(BLOCK);
+const M = modifierFactory(BLOCK);
 
 function InfoBox({ title, children, appState, dispatch, modifiers, mod, className }) {
   let onNameChange = ev => dispatch({ type: NAME_UPDATED, payload: ev.target.value });
@@ -19,7 +19,7 @@ function InfoBox({ title, children, appState, dispatch, modifiers, mod, classNam
 
   return (
     <div className={cx(getModifiersArray(BLOCK, mod || modifiers), className)}>
-      <p className={e('title')}>{title}</p>
+      <p className={E('title')}>{title}</p>
       <div>{children}</div>
       <input type="text" placeholder="type name" value={appState.name} onChange={onNameChange} />
       <input type="number" placeholder="type count" value={appState.count} onChange={onCountChange} />

@@ -54,12 +54,12 @@ function getModifiersArray(prefix, modifiers) {
   return [prefix].concat(modifiersArray.map(m => M(prefix, m)));
 }
 
-function E(prefix, element) {
-  return `${prefix}__${element}`;
+function elementFactory(block) {
+  return element => `${block}__${element}`;
 }
 
-function M(prefix, element) {
-  return `${prefix}--${element}`;
+function modifierFactory(block) {
+  return modifier => `${block}--${modifier}`;
 }
 
 export {
@@ -71,6 +71,6 @@ export {
   getModifiersArray,
   formatDateString,
   formatDate,
-  E,
-  M,
+  elementFactory,
+  modifierFactory,
 };

@@ -2,19 +2,19 @@ import './button.scss';
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import { getModifiersArray, E, M } from 'src/utils';
+import { getModifiersArray, elementFactory, modifierFactory } from 'src/utils';
 
 const BLOCK = 'button';
-const e = element => E(BLOCK, element);
-const m = modifier => M(BLOCK, modifier);
+const E = elementFactory(BLOCK);
+const M = modifierFactory(BLOCK);
 
 export default function Button({ children, onClick, disabled, className, modifiers, mod, type, icon }) {
   return (
     <button
       className={cx(
-        getModifiersArray(BLOCK, modifiers || mod),
+        getModifiersArray(BLOCK, mod || modifiers),
         {
-          [m('with-icon')]: !!icon,
+          [M('with-icon')]: !!icon,
         },
         className
       )}
@@ -22,7 +22,7 @@ export default function Button({ children, onClick, disabled, className, modifie
       type={type}
       disabled={disabled}
     >
-      <div className={e('text')}>{children}</div> {icon}
+      <div className={E('text')}>{children}</div> {icon}
     </button>
   );
 }
