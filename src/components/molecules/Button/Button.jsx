@@ -8,6 +8,8 @@ const BLOCK = 'button';
 const E = elementFactory(BLOCK);
 const M = modifierFactory(BLOCK);
 
+console.log(M('with-icon'));
+
 export default function Button({ children, onClick, disabled, className, modifiers, mod, type, icon }) {
   return (
     <button

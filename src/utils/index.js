@@ -51,7 +51,7 @@ function getModifiersArray(prefix, modifiers) {
     .split(' ')
     .map(m => m.trim())
     .filter(Boolean);
-  return [prefix].concat(modifiersArray.map(m => M(prefix, m)));
+  return [prefix].concat(modifiersArray.map(m => `${prefix}--${m}`));
 }
 
 function elementFactory(block) {
