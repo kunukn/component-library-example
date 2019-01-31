@@ -16,7 +16,6 @@ const formatDate = date => {
     if (month < 10) month = '0' + month;
 
     return `${day}-${month}-${year}`;
-
   } catch (exception) {
     return '';
   }
@@ -45,14 +44,22 @@ function updatePageTitle(title) {
 }
 
 function getModifiersArray(prefix, modifiers) {
-  if (!modifiers) return '';
+  if (!modifiers) return prefix;
 
   const modifiersArray = modifiers
     .trim()
     .split(' ')
     .map(m => m.trim())
     .filter(Boolean);
-  return modifiersArray.map(m => `${prefix}--${m}`);
+  return [prefix].concat(modifiersArray.map(m => M(prefix, m)));
+}
+
+function E(prefix, element) {
+  return `${prefix}__${element}`;
+}
+
+function M(prefix, element) {
+  return `${prefix}--${element}`;
 }
 
 export {
@@ -64,4 +71,6 @@ export {
   getModifiersArray,
   formatDateString,
   formatDate,
+  E,
+  M,
 };
